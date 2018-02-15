@@ -1,15 +1,16 @@
 package com.example.parkminhyun.wannafootball.screen.login;
 
-import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.parkminhyun.wannafootball.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends AppCompatActivity implements LoginPage.View{
+public class LoginActivity extends BaseActivity implements LoginPage.View{
 
     @BindView(R.id.searchPasswordButton)
     TextView searchPasswordButton;
@@ -19,22 +20,29 @@ public class LoginActivity extends AppCompatActivity implements LoginPage.View{
 
     LoginPage.Presenter loginPresenter;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
-        loginPresenter = new LoginPagePresenter(this);
-        loginPresenter.initUserData();
-    }
-
     @OnClick({R.id.searchPasswordButton, R.id.registerButton})
     public void onClick(View view) {
         int id = view.getId();
 
         if (id == R.id.searchPasswordButton) {
+            loginPresenter.initUserData();
         } else if (id == R.id.registerButton) {
         }
+    }
+
+    @Override
+    protected void createPresenter() {
+        loginPresenter = new LoginPagePresenter(this);
+    }
+
+    @Override
+    protected Activity getViews() {
+        return this;
+    }
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_login;
     }
 
 }
