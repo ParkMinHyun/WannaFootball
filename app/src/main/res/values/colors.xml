@@ -3,5 +3,39 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <!-- common color -->
     <color name="transparent">#00000000</color>
+    <color name="black">#ff000000</color>
+    <color name="dark_gray">#444444</color>
+    <color name="bright_gray">#bbbbbb</color>
+    <color name="brownish_grey">#666666</color>
+
+    <!-- bg color -->
+    <color name="bg_white">#ffffff</color>
+    <color name="bg_beige">#fdfbf8</color>
+    <color name="bg_black_dim_50">#80000000</color>
+    <color name="bg_dark">#2a2f3d</color>
+    <color name="bg_white_three">#f5f5f5</color>
+
+    <!-- divider color -->
+    <color name="divider_white_six">#ededed</color>
+    <color name="divider_white_seven">#f2f2f2</color>
+    <color name="divider_white_nine">#e5e5e5</color>
+    <color name="divider_bookmark">#e2e2e2</color>
+    <color name="black_8">#14000000</color>
+
+    <color name="white_opacity_80">#ccffffff</color>
+
+    <!-- text color -->
+    <color name="text_black">#222222</color>
+    <color name="text_white">#ffffff</color>
+    <color name="text_cornflower_blue">#4e88cf</color>
+    <color name="text_cornflower_blue_transparent">#B34e88cf</color>
+    <color name="text_green_teal">#09a55a</color>
+    <color name="text_warm_grey">#959595</color>
+    <color name="text_warm_grey_two">#888888</color>
+    <color name="text_dark_sky_blue">#4a90e2</color>
+    <color name="text_orange_red">#fe3824</color>
+    <color name="text_steel">#888b94</color>
 </resources>
