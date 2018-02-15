@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball;
+package com.example.parkminhyun.wannafootball.screen.main;
 
 /**
  * Created by ParkMinHyun on 2018-02-15.
@@ -6,12 +6,12 @@ package com.example.parkminhyun.wannafootball;
 
 public class MainPagePresenter implements MainPage.Presenter {
 
-    MainPage.View mainPageView;
-    MainPageModel mainPageModel;
+    MainPage.View mainView;
+    MainPageModel mainModel;
 
     public MainPagePresenter(MainPage.View mainPageView) {
-        this.mainPageView = mainPageView;
-        this.mainPageModel = new MainPageModel();
+        this.mainView = mainPageView;
+        this.mainModel = new MainPageModel();
     }
 
     @Override

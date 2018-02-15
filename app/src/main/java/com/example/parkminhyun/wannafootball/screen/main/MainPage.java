@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball;
+package com.example.parkminhyun.wannafootball.screen.main;
 
 import org.json.JSONObject;
 

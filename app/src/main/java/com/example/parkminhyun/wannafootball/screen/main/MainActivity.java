@@ -1,24 +1,26 @@
-package com.example.parkminhyun.wannafootball;
+package com.example.parkminhyun.wannafootball.screen.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.parkminhyun.wannafootball.R;
+
 public class MainActivity extends AppCompatActivity implements MainPage.View{
 
-    MainPage.Presenter presenter;
+    MainPage.Presenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        presenter = new MainPagePresenter(this);
-        presenter.initUserData();
+        mainPresenter = new MainPagePresenter(this);
+        mainPresenter.initUserData();
 
         initView();
     }
 
     private void initView() {
-
     }
+
 }
