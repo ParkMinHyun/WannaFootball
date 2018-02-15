@@ -43,6 +43,10 @@ dependencies {
     implementation "com.jakewharton:butterknife:$butterknife_version"
     kapt "com.jakewharton:butterknife-compiler:$butterknife_version"
 
+    // side bar library
+    implementation 'com.github.ozodrukh:CircularReveal:1.0.4'
+    implementation 'com.github.yalantis:Side-Menu.Android:1.0.1'
+
     // test library
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
