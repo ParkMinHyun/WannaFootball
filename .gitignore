@@ -1,9 +1,19 @@
-*.iml
+#android studio
 .gradle
+build/*
+build/
 /local.properties
 /.idea/workspace.xml
 /.idea/libraries
+/.idea/**
+*.iml
+/libraries/**/*.iml
+**/intermediates/**
+**/build/**
+/app/*.iml
+**/gen/**
+captures
+
+#etc
 .DS_Store
-/build
-/captures
-.externalNativeBuild
+*.puml
