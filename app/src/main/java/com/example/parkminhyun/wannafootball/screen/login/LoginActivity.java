@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity implements LoginPage.View{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         loginPresenter = new LoginPagePresenter(this);
         loginPresenter.initUserData();
