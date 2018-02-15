@@ -2,12 +2,20 @@ package com.example.parkminhyun.wannafootball.screen.login;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-
+import android.view.View;
+import android.widget.TextView;
 import com.example.parkminhyun.wannafootball.R;
-import com.example.parkminhyun.wannafootball.screen.main.MainPage;
-import com.example.parkminhyun.wannafootball.screen.main.MainPagePresenter;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class LoginActivity extends AppCompatActivity implements LoginPage.View{
+
+    @BindView(R.id.searchPasswordButton)
+    TextView searchPasswordButton;
+
+    @BindView(R.id.registerButton)
+    TextView registerButton;
 
     LoginPage.Presenter loginPresenter;
 
@@ -18,11 +26,15 @@ public class LoginActivity extends AppCompatActivity implements LoginPage.View{
 
         loginPresenter = new LoginPagePresenter(this);
         loginPresenter.initUserData();
-
-        initView();
     }
 
-    private void initView() {
+    @OnClick({R.id.searchPasswordButton, R.id.registerButton})
+    public void onClick(View view) {
+        int id = view.getId();
+
+        if (id == R.id.searchPasswordButton) {
+        } else if (id == R.id.registerButton) {
+        }
     }
 
 }

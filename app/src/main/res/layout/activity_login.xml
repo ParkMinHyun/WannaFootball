@@ -25,9 +25,16 @@
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/layout_login_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -37,14 +44,14 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="70dp"
+            android:singleLine="true"
             android:hint="Email Address"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:met_baseColor="@color/bg_white"
             app:met_floatingLabel="normal"
-            app:met_textColor="@color/bg_white"
-            app:met_textColorHint="@color/bright_gray" />
+            app:met_baseColor="@color/text_black"
+            app:met_textColor="@color/text_black"
+            app:met_textColorHint="@color/text_steel" />
 
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -54,16 +61,16 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:hint="Password"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:singleLine="true"
+            android:password="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginIdText"
-            app:layout_constraintVertical_bias="0.0"
-            app:met_baseColor="@color/bg_white"
             app:met_floatingLabel="normal"
-            app:met_textColor="@color/bg_white"
-            app:met_textColorHint="@color/bright_gray" />
+            app:met_baseColor="@color/text_black"
+            app:met_textColor="@color/text_black"
+            app:met_textColorHint="@color/text_steel"
+            tools:ignore="Deprecated" />
 
         <FrameLayout
             android:id="@+id/loginImageView"
@@ -72,7 +79,7 @@
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/layout_login_background"
+            android:background="@color/text_green_teal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginPasswordText">
@@ -82,6 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Login"
+                android:textColor="@color/text_white"
                 android:textSize="20dp" />
 
         </FrameLayout>
@@ -89,15 +97,18 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/loginImageView">
 
             <TextView
+                android:id="@+id/searchPasswordButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Password" />
@@ -110,6 +121,7 @@
                 android:text="|" />
 
             <TextView
+                android:id="@+id/registerButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Register" />

@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import com.example.parkminhyun.wannafootball.R;
 
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity implements MainPage.View{
 
     MainPage.Presenter mainPresenter;
@@ -21,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements MainPage.View{
     }
 
     private void initView() {
+        ButterKnife.bind(this);
     }
 
 }
