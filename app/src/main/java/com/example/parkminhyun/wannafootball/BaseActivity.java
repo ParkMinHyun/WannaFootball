@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.parkminhyun.wannafootball.common.util.AnimationDirection;
+import com.example.parkminhyun.wannafootball.common.util.ScreenAnimationUtils;
+
 import butterknife.ButterKnife;
 
 /**
@@ -21,11 +24,13 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         createPresenter();
         initActivity();
+        initEnterAnimation();
     }
 
     @Override
     public void finish() {
         super.finish();
+        initFinishAnimation();
     }
 
     private void initActivity() {
@@ -39,6 +44,20 @@ public abstract class BaseActivity extends AppCompatActivity {
      * abstract 사용하지 않음으로써 View 초기화가 필요한 Activity만 Override할 수 있음.
      */
     protected void initView(BaseActivity context){}
+
+    protected AnimationDirection getAnimationDirection() {
+        return AnimationDirection.LEFT;
+    }
+
+    protected void initEnterAnimation() {
+        overridePendingTransition(ScreenAnimationUtils.getEnterAnimationId(getAnimationDirection()),
+                                  ScreenAnimationUtils.getFinishAnimationId(getAnimationDirection()));
+    }
+
+    protected void initFinishAnimation() {
+        overridePendingTransition(ScreenAnimationUtils.getEnterAnimationId(getAnimationDirection()),
+                                  ScreenAnimationUtils.getFinishAnimationId(getAnimationDirection()));
+    }
 
     /**
      * 밑 3개 Method는 Activity 생성시 꼭 필요하기에 abstract로 구현.

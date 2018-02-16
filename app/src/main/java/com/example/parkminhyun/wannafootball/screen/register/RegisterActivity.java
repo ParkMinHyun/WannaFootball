@@ -6,6 +6,7 @@ import android.view.View;
 import com.example.parkminhyun.wannafootball.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
+import com.example.parkminhyun.wannafootball.common.util.AnimationDirection;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import butterknife.BindView;
@@ -78,4 +79,7 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
     @Override
     protected int getLayout() { return R.layout.activity_register; }
 
+    @Override
+    protected AnimationDirection getAnimationDirection(){ return AnimationDirection.RIGHT; }
+    }
 }
