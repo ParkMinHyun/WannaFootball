@@ -31,10 +31,10 @@ public class RangeScaleTextView extends AppCompatTextView {
 
     private void init(Context context, AttributeSet attrs) {
 
-        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.RangeScaleTextView);
-        int minPixelSize = ta.getDimensionPixelSize(R.styleable.RangeScaleTextView_minDpSize, DEFAULT_MIN_TEXT_PIXEL_SIZE);
-        int maxPixelSize = ta.getDimensionPixelSize(R.styleable.RangeScaleTextView_maxDpSize, DEFAULT_MAX_TEXT_PIXEL_SIZE);
-        ta.recycle();
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.RangeScaleTextView);
+        int minPixelSize = typedArray.getDimensionPixelSize(R.styleable.RangeScaleTextView_minDpSize, DEFAULT_MIN_TEXT_PIXEL_SIZE);
+        int maxPixelSize = typedArray.getDimensionPixelSize(R.styleable.RangeScaleTextView_maxDpSize, DEFAULT_MAX_TEXT_PIXEL_SIZE);
+        typedArray.recycle();
 
         float textSize = getTextSize();
         float fontScale = getResources().getConfiguration().fontScale;

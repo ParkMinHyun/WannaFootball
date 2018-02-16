@@ -81,5 +81,4 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
 
     @Override
     protected AnimationDirection getAnimationDirection(){ return AnimationDirection.RIGHT; }
-    }
 }
