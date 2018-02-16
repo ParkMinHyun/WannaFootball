@@ -9,10 +9,13 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 public interface RegisterPage {
 
     interface View {
+        void changePasswordColor(boolean isChecked);
     }
 
     interface Presenter {
-        void passwordCheckWatcher(MaterialEditText loginPasswordText, MaterialEditText loginPasswordCheckText);
+        void passwordCheckWatcher(MaterialEditText loginPasswordText,
+                                  MaterialEditText loginPasswordCheckText);
+
     }
 
 }

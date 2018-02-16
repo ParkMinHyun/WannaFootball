@@ -38,4 +38,7 @@
     <color name="text_dark_sky_blue">#4a90e2</color>
     <color name="text_orange_red">#fe3824</color>
     <color name="text_steel">#888b94</color>
+
+    <color name="base_color">#0056d3</color>
+    <color name="error_color">#982360</color>
 </resources>

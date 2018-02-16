@@ -34,9 +34,9 @@
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
                 android:singleLine="true"
-                app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/emailDuplicationCheckButton"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 app:met_baseColor="@color/text_black"
                 app:met_floatingLabel="normal"
                 app:met_textColor="@color/text_black"
@@ -80,40 +80,71 @@
             app:met_textColorHint="@color/text_steel"
             tools:ignore="Deprecated" />
 
-        <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/loginPasswordCheckText"
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/passwordCheckLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:hint="Password Check"
-            android:password="true"
-            android:singleLine="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginPasswordText"
-            app:met_baseColor="@color/text_black"
-            app:met_floatingLabel="normal"
-            app:met_textColor="@color/text_black"
-            app:met_textColorHint="@color/text_steel"
-            tools:ignore="Deprecated" />
+            app:layout_constraintTop_toBottomOf="@+id/loginPasswordText">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/loginPasswordCheckText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password Check"
+                android:password="true"
+                android:singleLine="true"
+                app:met_baseColor="@color/text_black"
+                app:met_floatingLabel="normal"
+                app:met_textColor="@color/text_black"
+                app:met_textColorHint="@color/text_steel"
+                tools:ignore="Deprecated" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView
+                    android:id="@+id/passwordCorrect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="비밀번호가 일치합니다."
+                    android:textColor="@color/text_green_teal"
+                    android:visibility="gone" />
+
+                <com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView
+                    android:id="@+id/passwordNotCorrect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="비밀번호가 일치하지 않습니다."
+                    android:textColor="@color/text_orange_red"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+        </android.support.constraint.ConstraintLayout>
 
         <RadioGroup
             android:id="@+id/genderGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@id/loginPasswordCheckText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordCheckLayout">
 
 
             <RadioButton
                 android:id="@+id/genderMan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
                 android:layout_marginRight="10dp"
+                android:checked="true"
                 android:text="남성" />
 
             <RadioButton

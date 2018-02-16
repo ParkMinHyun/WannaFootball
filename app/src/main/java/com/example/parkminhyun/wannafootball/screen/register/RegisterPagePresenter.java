@@ -1,6 +1,5 @@
 package com.example.parkminhyun.wannafootball.screen.register;
 
-import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 
@@ -29,32 +28,30 @@ public class RegisterPagePresenter implements RegisterPage.Presenter {
 
         final TextWatcher textWatcher = new TextWatcher() {
             @Override
-            public void afterTextChanged(Editable edit) {}
+            public void afterTextChanged(Editable edit) {
+            }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+                // 입력된 password가 model에 저장된 password와 다를 경우에만 password 변경.
                 String passwordString = loginPasswordText.getText().toString();
-                if(passwordString != null) {
-                    registerModel.setPassword(passwordString);
+                if (passwordString != null) {
+                    if (!passwordString.equals(registerModel.getPassword()))
+                        registerModel.setPassword(passwordString);
                 }
             }
 
             @Override
-            public void onTextChanged(CharSequence passwordCheckString, int start, int before,
-                                      int count) {
+            public void onTextChanged(CharSequence passwordCheckString, int start, int before, int count) {
 
-                if (registerModel.getPassword() == null){
+                if (registerModel.getPassword() == null)
                     return;
-                }
 
-                if(passwordCheckString.toString().equals(registerModel.getPassword())){
-                    // TODO : Hint 색상 Activity (View)에서 변경시키기 - 현재는 Presenter에서 변경하고 있음.
-                    loginPasswordCheckText.setTextColor(Color.BLUE);
-                }
-                else{
-                    // TODO : 본래색으로 변경하기.
-                }
+                if (passwordCheckString.toString().equals(registerModel.getPassword()))
+                    registerView.changePasswordColor(true);
+                else
+                    registerView.changePasswordColor(false);
             }
         };
         loginPasswordCheckText.addTextChangedListener(textWatcher);

@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.example.parkminhyun.wannafootball.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
+import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import butterknife.BindView;
@@ -28,6 +29,12 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
     @BindView(R.id.signUpButton)
     View signUpButton;
 
+    @BindView(R.id.passwordCorrect)
+    RangeScaleTextView passwordCorrect;
+
+    @BindView(R.id.passwordNotCorrect)
+    RangeScaleTextView passwordNotCorrect;
+
     RegisterPage.Presenter registerPresenter;
 
     @OnClick({R.id.emailDuplicationCheckButton, R.id.signUpButton})
@@ -48,6 +55,18 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
 
     private void initEditText() {
         registerPresenter.passwordCheckWatcher(loginPasswordText, loginPasswordCheckText);
+    }
+
+    @Override
+    public void changePasswordColor(boolean isChecked) {
+        if(isChecked){
+            passwordCorrect.setVisibility(View.VISIBLE);
+            passwordNotCorrect.setVisibility(View.GONE);
+        }
+        else{
+            passwordNotCorrect.setVisibility(View.VISIBLE);
+            passwordCorrect.setVisibility(View.GONE);
+        }
     }
 
     @Override
