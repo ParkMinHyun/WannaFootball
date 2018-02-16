@@ -26,6 +26,6 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
     protected Activity getViews() { return this; }
 
     @Override
-    protected int getLayout() { return R.layout.activity_login; }
+    protected int getLayout() { return R.layout.activity_register; }
 
 }
