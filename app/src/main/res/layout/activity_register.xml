@@ -35,7 +35,7 @@
                 android:hint="Email Address"
                 android:singleLine="true"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/relativeLayout"
+                app:layout_constraintEnd_toStartOf="@+id/emailDuplicationCheckButton"
                 app:layout_constraintStart_toStartOf="parent"
                 app:met_baseColor="@color/text_black"
                 app:met_floatingLabel="normal"
@@ -43,7 +43,7 @@
                 app:met_textColorHint="@color/text_steel" />
 
             <RelativeLayout
-                android:id="@+id/relativeLayout"
+                android:id="@+id/emailDuplicationCheckButton"
                 android:layout_width="80dp"
                 android:layout_height="47dp"
                 android:layout_toRightOf="@id/loginIdText"
@@ -54,7 +54,6 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView
-                    android:id="@+id/emailDuplicationCheckButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="중복 확인"
@@ -127,7 +126,7 @@
         </RadioGroup>
 
         <FrameLayout
-            android:id="@+id/loginImageView"
+            android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginEnd="30dp"

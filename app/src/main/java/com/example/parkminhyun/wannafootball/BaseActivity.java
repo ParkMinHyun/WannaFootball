@@ -20,7 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         createPresenter();
-        initView();
+        initActivity();
     }
 
     @Override
@@ -28,10 +28,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.finish();
     }
 
-    private void initView() {
+    private void initActivity() {
         setContentView(getLayout());
         ButterKnife.bind(getViews());
+
+        initView(this);
     }
+
+    protected void initView(BaseActivity context){}
 
     protected abstract void createPresenter();
 
