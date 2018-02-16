@@ -35,8 +35,14 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView(this);
     }
 
+    /**
+     * abstract 사용하지 않음으로써 View 초기화가 필요한 Activity만 Override할 수 있음.
+     */
     protected void initView(BaseActivity context){}
 
+    /**
+     * 밑 3개 Method는 Activity 생성시 꼭 필요하기에 abstract로 구현.
+     */
     protected abstract void createPresenter();
 
     protected abstract Activity getViews();

@@ -43,7 +43,11 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
 
     @Override
     public void initView(BaseActivity context){
+        initEditText();
+    }
 
+    private void initEditText() {
+        registerPresenter.passwordCheckWatcher(loginPasswordText, loginPasswordCheckText);
     }
 
     @Override
