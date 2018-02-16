@@ -21,6 +21,5 @@ public class LoginPagePresenter implements LoginPage.Presenter {
     @Override
     public void initUserData() {
         Toast.makeText(MainApplication.getInstance(),"gd",Toast.LENGTH_SHORT).show();
-
     }
 }
