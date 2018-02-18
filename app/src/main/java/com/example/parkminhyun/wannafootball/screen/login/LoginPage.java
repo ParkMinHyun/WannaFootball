@@ -19,7 +19,7 @@ public interface LoginPage {
     }
 
     interface Presenter {
-        void naverLoginButtonClick(LoginActivity loginActivity);
+        void naverLoginButtonClick();
 
         void nextLoginButtonClick();
 

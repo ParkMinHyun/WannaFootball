@@ -35,12 +35,11 @@ public class LoginActivity extends BaseActivity implements LoginPage.View {
         int id = view.getId();
 
         if (id == R.id.naverLoginButton) {
-            loginPresenter.naverLoginButtonClick(this);
+            loginPresenter.naverLoginButtonClick();
         } else if (id == R.id.nextLoginButton) {
             loginPresenter.nextLoginButtonClick();
         }
     }
-
 
     @Override
     public void setOAuthLoginHandler(OAuthLoginHandler mOAuthLoginHandler) {

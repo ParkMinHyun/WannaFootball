@@ -5,6 +5,7 @@ import android.content.Context;
 import android.widget.Toast;
 
 import com.example.parkminhyun.wannafootball.BaseActivity;
+import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
@@ -23,16 +24,25 @@ public class LoginPagePresenter implements LoginPage.Presenter {
     private Context context;
     public OAuthLogin mOAuthLoginModule;
 
+    private UserLoginModelProvider userLoginModelProvider;
+
     public LoginPagePresenter(LoginPage.View loginView) {
         this.loginView = loginView;
+        this.userLoginModelProvider = new UserLoginModelProvider();
     }
 
     @Override
     public void initNaverLogin(BaseActivity context) {
-        this.context = context;
-        mOAuthLoginModule = OAuthLogin.getInstance();
-        mOAuthLoginModule.init(context, CLIENT_ID, CLIENT_SECRET, CLIENT_NAME);
-        loginView.setOAuthLoginHandler(mOAuthLoginHandler);
+        // 이미 로그인 되어 있거나, 다음에 보기 클릭했을 경우 Skip 하기
+        // TODO : 나중에 Splash 만들면 Splash 화면에서 분기처리 해주기
+        if (userLoginModelProvider.getUserLogined())
+            loginView.startMainActivity();
+        else {
+            this.context = context;
+            mOAuthLoginModule = OAuthLogin.getInstance();
+            mOAuthLoginModule.init(context, CLIENT_ID, CLIENT_SECRET, CLIENT_NAME);
+            loginView.setOAuthLoginHandler(mOAuthLoginHandler);
+        }
     }
 
     @SuppressLint("HandlerLeak")
@@ -40,27 +50,31 @@ public class LoginPagePresenter implements LoginPage.Presenter {
         @Override
         public void run(boolean success) {
             if (success) {
-                String accessToken = mOAuthLoginModule.getAccessToken(context);
-                String refreshToken = mOAuthLoginModule.getRefreshToken(context);
-                long expiresAt = mOAuthLoginModule.getExpiresAt(context);
-                String tokenType = mOAuthLoginModule.getTokenType(context);
+//                String accessToken = mOAuthLoginModule.getAccessToken(context);
+//                String refreshToken = mOAuthLoginModule.getRefreshToken(context);
+//                long expiresAt = mOAuthLoginModule.getExpiresAt(context);
+//                String tokenType = mOAuthLoginModule.getTokenType(context);
+
+                userLoginModelProvider.updateUserLogin();
+                loginView.startMainActivity();
             } else {
                 String errorCode = mOAuthLoginModule.getLastErrorCode(context).getCode();
                 String errorDesc = mOAuthLoginModule.getLastErrorDesc(context);
-                Toast.makeText(context, "errorCode:" + errorCode
-                        + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
             }
         }
     };
 
 
     @Override
-    public void naverLoginButtonClick(LoginActivity loginActivity) {
+    public void naverLoginButtonClick() {
         loginView.startOauthLoginActivity(mOAuthLoginModule, mOAuthLoginHandler);
     }
 
     @Override
     public void nextLoginButtonClick() {
+        userLoginModelProvider.updateUserLogin();
+        loginView.startMainActivity();
     }
 
 }
