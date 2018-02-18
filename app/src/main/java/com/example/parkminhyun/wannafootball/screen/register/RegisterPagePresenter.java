@@ -2,7 +2,15 @@ package com.example.parkminhyun.wannafootball.screen.register;
 
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.example.parkminhyun.wannafootball.MainApplication;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
@@ -11,8 +19,14 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class RegisterPagePresenter implements RegisterPage.Presenter {
 
-    RegisterPage.View registerView;
-    RegisterPageModel registerModel;
+    private RegisterPage.View registerView;
+    private RegisterPageModel registerModel;
+
+    private DatabaseReference databaseUser;
+    public static final String USER_LOGIN = "user";
+
+    private boolean isEmailDupChecked = false;
+    private boolean isPasswordChecked = false;
 
     public RegisterPagePresenter(RegisterPage.View registerView) {
         this.registerView = registerView;
@@ -27,9 +41,9 @@ public class RegisterPagePresenter implements RegisterPage.Presenter {
                                      final MaterialEditText loginPasswordCheckText) {
 
         final TextWatcher textWatcher = new TextWatcher() {
+
             @Override
-            public void afterTextChanged(Editable edit) {
-            }
+            public void afterTextChanged(Editable edit) {}
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -49,12 +63,63 @@ public class RegisterPagePresenter implements RegisterPage.Presenter {
                     return;
 
                 if (passwordCheckString.toString().equals(registerModel.getPassword()))
-                    registerView.changePasswordColor(true);
+                    isPasswordChecked = true;
                 else
-                    registerView.changePasswordColor(false);
+                    isPasswordChecked = false;
+
+                registerView.changePasswordColor(isPasswordChecked);
             }
         };
         loginPasswordCheckText.addTextChangedListener(textWatcher);
+    }
+
+    @Override
+    public void onClickEmailDuplicationCheckButton(MaterialEditText emailText) {
+        String currentEmail = emailText.getText().toString();
+        Query query = databaseUser.orderByChild("email");
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    RegisterPageModel userVO = postSnapshot.getValue(RegisterPageModel.class);
+                    if (userVO.getEmail().equals(currentEmail)) {
+                        isEmailDupChecked = false;
+                        Log.i("중복", "중복되네요.");
+                        return;
+                    }
+                }
+                isEmailDupChecked = true;
+                registerModel.setEmail(currentEmail);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {}
+        });
+    }
+
+    @Override
+    public void onClickSignUpButton() {
+
+        if (!isEmailDupChecked) {
+            Toast.makeText(MainApplication.getInstance(), "Email 중복검사하세욧", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if (!isPasswordChecked) {
+            Toast.makeText(MainApplication.getInstance(), "비밀번호 체크하세요", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Log.i("회원 등록", registerModel.getEmail() + '\n' + registerModel.getPassword());
+        String id = databaseUser.push().getKey();
+        databaseUser.child(id).setValue(registerModel);
+        registerView.finishActivity();
+    }
+
+    @Override
+    public void setFireBaseReference(DatabaseReference databaseUser) {
+        this.databaseUser = databaseUser;
     }
 
 }

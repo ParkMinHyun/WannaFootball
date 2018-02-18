@@ -6,4 +6,7 @@
         <attr name="maxDpSize" format="dimension" />
     </declare-styleable>
 
+    <declare-styleable name="RiceCakeView">
+        <attr name="reverseAnimation" format="boolean" />
+    </declare-styleable>
 </resources>

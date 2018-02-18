@@ -1,8 +1,6 @@
 package com.example.parkminhyun.wannafootball.screen.login;
 
-import android.widget.Toast;
-
-import com.example.parkminhyun.wannafootball.MainApplication;
+import com.rengwuxian.materialedittext.MaterialEditText;
 
 /**
  * Created by ParkMinHyun on 2018-02-15.
@@ -19,7 +17,9 @@ public class LoginPagePresenter implements LoginPage.Presenter {
     }
 
     @Override
-    public void initUserData() {
-        Toast.makeText(MainApplication.getInstance(),"gd",Toast.LENGTH_SHORT).show();
+    public void loginCheck(MaterialEditText loginEmailText,
+                           MaterialEditText loginPasswordText) {
+
+        loginView.startMainActivity();
     }
 }

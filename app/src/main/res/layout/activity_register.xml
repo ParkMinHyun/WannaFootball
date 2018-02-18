@@ -29,7 +29,7 @@
             android:orientation="horizontal">
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/loginIdText"
+                android:id="@+id/registerEmailText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="Email Address"
@@ -46,10 +46,10 @@
                 android:id="@+id/emailDuplicationCheckButton"
                 android:layout_width="80dp"
                 android:layout_height="47dp"
-                android:layout_toRightOf="@id/loginIdText"
+                android:layout_toRightOf="@id/registerEmailText"
                 android:background="@color/text_green_teal"
                 android:gravity="center"
-                app:layout_constraintBottom_toBottomOf="@id/loginIdText"
+                app:layout_constraintBottom_toBottomOf="@id/registerEmailText"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -63,7 +63,7 @@
         </android.support.constraint.ConstraintLayout>
 
         <com.rengwuxian.materialedittext.MaterialEditText
-            android:id="@+id/loginPasswordText"
+            android:id="@+id/registerPasswordText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="30dp"
@@ -88,10 +88,10 @@
             android:layout_marginStart="30dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginPasswordText">
+            app:layout_constraintTop_toBottomOf="@+id/registerPasswordText">
 
             <com.rengwuxian.materialedittext.MaterialEditText
-                android:id="@+id/loginPasswordCheckText"
+                android:id="@+id/registerPasswordCheckText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password Check"
@@ -129,32 +129,32 @@
             </FrameLayout>
         </android.support.constraint.ConstraintLayout>
 
-        <RadioGroup
-            android:id="@+id/genderGroup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/passwordCheckLayout">
+        <!--<RadioGroup-->
+            <!--android:id="@+id/genderGroup"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/passwordCheckLayout">-->
 
 
-            <RadioButton
-                android:id="@+id/genderMan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:checked="true"
-                android:text="남성" />
+            <!--<RadioButton-->
+                <!--android:id="@+id/genderMan"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:checked="true"-->
+                <!--android:text="남성" />-->
 
-            <RadioButton
-                android:id="@+id/genderWoman"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="여성" />
+            <!--<RadioButton-->
+                <!--android:id="@+id/genderWoman"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:text="여성" />-->
 
-        </RadioGroup>
+        <!--</RadioGroup>-->
 
         <FrameLayout
             android:id="@+id/signUpButton"
@@ -166,7 +166,7 @@
             android:background="@color/text_green_teal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/genderGroup">
+            app:layout_constraintTop_toBottomOf="@+id/passwordCheckLayout">
 
             <com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView
                 android:layout_width="wrap_content"

@@ -2,6 +2,9 @@ package com.example.parkminhyun.wannafootball;
 
 import android.app.Application;
 import android.content.Context;
+
+import com.google.firebase.database.FirebaseDatabase;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -12,6 +15,8 @@ import io.realm.RealmConfiguration;
 public class MainApplication extends Application {
 
     private static MainApplication instance;
+
+    private static FirebaseDatabase firebaseDatabase;
     private static final String APP_NAME = "WannaFootball";
 
     @Override
@@ -29,6 +34,7 @@ public class MainApplication extends Application {
 
     private void initLibraries() {
         initRealm();
+        initFireBase();
     }
 
     private void initRealm() {
@@ -40,8 +46,13 @@ public class MainApplication extends Application {
         Realm.setDefaultConfiguration(realmConfiguration);
     }
 
+    private void initFireBase() {
+        firebaseDatabase = FirebaseDatabase.getInstance();
+    }
+
     public static MainApplication getInstance() {
         return instance;
     }
 
+    public static FirebaseDatabase getFirebaseDatabase() { return firebaseDatabase; }
 }

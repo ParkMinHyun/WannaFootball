@@ -8,7 +8,6 @@ public class RegisterPageModel {
 
     private String email;
     private String password;
-    private String passwordCheck;
 
     public String getEmail() {
         return email;
@@ -26,20 +25,11 @@ public class RegisterPageModel {
         this.password = password;
     }
 
-    public String getPasswordCheck() {
-        return passwordCheck;
-    }
-
-    public void setPasswordCheck(String passwordCheck) {
-        this.passwordCheck = passwordCheck;
-    }
-
     @Override
     public String toString() {
         return "RegisterPageModel{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", passwordCheck='" + passwordCheck + '\'' +
                 '}';
     }
 }

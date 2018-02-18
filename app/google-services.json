@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "868818158748",
+    "firebase_url": "https://wannafootball-9a6db.firebaseio.com",
+    "project_id": "wannafootball-9a6db",
+    "storage_bucket": "wannafootball-9a6db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:868818158748:android:24f4330e3380537c",
+        "android_client_info": {
+          "package_name": "com.example.parkminhyun.wannafootball"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "868818158748-2v9q9o3n5g5csmotak2pjbrr4kce2to5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.parkminhyun.wannafootball",
+            "certificate_hash": "49ec02045d137ddddb2e7f8b0b3023bf1f25d3a7"
+          }
+        },
+        {
+          "client_id": "868818158748-fam2s90delvqish31sdff0bdnb1tv1j9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-eaR-Gb4MaciDuUg0lfMe0PaS5x1aano"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "868818158748-fam2s90delvqish31sdff0bdnb1tv1j9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
