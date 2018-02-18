@@ -40,7 +40,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
         // 이미 로그인 되어 있거나, 다음에 보기 클릭했을 경우 Skip 하기
         // TODO : 나중에 Splash 만들면 Splash 화면에서 분기처리 해주기
         if (userLoginModelProvider.getUserLogined())
-            loginView.startMainActivity();
+            startMainActivity();
         else {
             this.context = context;
             mOAuthLoginModule = OAuthLogin.getInstance();
@@ -72,7 +72,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
                 JSONObject jsonObject = new JSONObject(response);
                 String userID = jsonObject.getJSONObject("response").getString("id");
                 userLoginModelProvider.updateUserLogin(userID);
-                loginView.startMainActivity();
+                startMainActivity();
             }
             catch (JSONException e) {
                 e.printStackTrace();
@@ -80,6 +80,9 @@ public class LoginPagePresenter implements LoginPage.Presenter {
         }).start();
     }
 
+    private void startMainActivity() {
+        loginView.startMainActivity();
+    }
 
     @Override
     public void naverLoginButtonClick() {
@@ -89,7 +92,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
     @Override
     public void nextLoginButtonClick() {
         userLoginModelProvider.updateUserLogin();
-        loginView.startMainActivity();
+        startMainActivity();
     }
 
 }
