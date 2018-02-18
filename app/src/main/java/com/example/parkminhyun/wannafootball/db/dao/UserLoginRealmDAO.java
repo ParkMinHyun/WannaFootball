@@ -34,4 +34,16 @@ public class UserLoginRealmDAO extends BaseRealmDAO{
             }
         });
     }
+
+    public void setUserLoginStatus(String id) {
+        modify(realm -> {
+            UserLoginRO userLoginRO = realm.where(UserLoginRO.class).findFirst();
+
+            if (userLoginRO == null) {
+                userLoginRO = realm.createObject(UserLoginRO.class);
+                userLoginRO.setLogined(true);
+                userLoginRO.setUserID(id);
+            }
+        });
+    }
 }

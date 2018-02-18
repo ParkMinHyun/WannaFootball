@@ -9,6 +9,9 @@ import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by ParkMinHyun on 2018-02-15.
  */
@@ -20,6 +23,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
     private final String CLIENT_ID = "ajkQnVpM4y94tf3XjIlw";
     private final String CLIENT_SECRET = "TyVWYW36Mr";
     private final String CLIENT_NAME = "DoYouWantToSoccer?";
+    private final String USER_URL = "https://openapi.naver.com/v1/nid/me";
 
     private Context context;
     public OAuthLogin mOAuthLoginModule;
@@ -50,13 +54,9 @@ public class LoginPagePresenter implements LoginPage.Presenter {
         @Override
         public void run(boolean success) {
             if (success) {
-//                String accessToken = mOAuthLoginModule.getAccessToken(context);
-//                String refreshToken = mOAuthLoginModule.getRefreshToken(context);
-//                long expiresAt = mOAuthLoginModule.getExpiresAt(context);
-//                String tokenType = mOAuthLoginModule.getTokenType(context);
+                String accessToken = mOAuthLoginModule.getAccessToken(context);
+                setUserInfo(accessToken);
 
-                userLoginModelProvider.updateUserLogin();
-                loginView.startMainActivity();
             } else {
                 String errorCode = mOAuthLoginModule.getLastErrorCode(context).getCode();
                 String errorDesc = mOAuthLoginModule.getLastErrorDesc(context);
@@ -64,6 +64,21 @@ public class LoginPagePresenter implements LoginPage.Presenter {
             }
         }
     };
+
+    private void setUserInfo(String accessToken) {
+        new Thread(() -> {
+            String response = mOAuthLoginModule.requestApi(context, accessToken, USER_URL);
+            try {
+                JSONObject jsonObject = new JSONObject(response);
+                String userID = jsonObject.getJSONObject("response").getString("id");
+                userLoginModelProvider.updateUserLogin(userID);
+                loginView.startMainActivity();
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 
 
     @Override

@@ -9,6 +9,7 @@ import io.realm.RealmObject;
 public class UserLoginRO extends RealmObject{
 
     private boolean isLogined;
+    private String userID;
 
     public boolean isLogined() {
         return isLogined;
@@ -16,5 +17,13 @@ public class UserLoginRO extends RealmObject{
 
     public void setLogined(boolean logined) {
         isLogined = logined;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 }
