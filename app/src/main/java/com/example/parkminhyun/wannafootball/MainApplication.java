@@ -54,5 +54,6 @@ public class MainApplication extends Application {
         return instance;
     }
 
+    public static Realm getRealmInstance(){ return Realm.getDefaultInstance(); }
     public static FirebaseDatabase getFirebaseDatabase() { return firebaseDatabase; }
 }
