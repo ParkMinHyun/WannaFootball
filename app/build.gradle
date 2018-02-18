@@ -58,6 +58,9 @@ dependencies {
 
     // firebase library
     implementation "com.google.firebase:firebase-database:$firebase_version"
+
+    // naver login library
+    implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

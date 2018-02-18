@@ -41,6 +41,7 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
 
     private RegisterPage.Presenter registerPresenter;
     private DatabaseReference databaseUser;
+
     @Override
     public void init(BaseActivity context){
         initView();

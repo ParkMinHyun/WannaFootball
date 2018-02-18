@@ -10,6 +10,11 @@ public class MainActivity extends BaseActivity implements MainPage.View{
     MainPage.Presenter mainPresenter;
 
     @Override
+    protected void init(BaseActivity context) {
+
+    }
+
+    @Override
     protected void createPresenter() { mainPresenter = new MainPagePresenter(this); }
 
     @Override

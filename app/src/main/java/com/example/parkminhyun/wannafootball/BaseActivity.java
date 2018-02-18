@@ -42,8 +42,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * abstract 사용하지 않음으로써 View 초기화가 필요한 Activity만 Override할 수 있음.
      */
-    protected void init(BaseActivity context){}
-
     protected AnimationDirection getAnimationDirection() {
         return AnimationDirection.LEFT;
     }
@@ -61,6 +59,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     /**
      * 밑의 Method는 Activity 생성시 꼭 필요하기에 abstract로 구현.
      */
+    protected abstract void init(BaseActivity context);
+
     protected abstract void createPresenter();
 
     protected abstract Activity getViews();
