@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.register;
+package com.example.parkminhyun.wannafootball.screen.activity.register;
 
 /**
  * Created by ParkMinHyun on 2018-02-15.

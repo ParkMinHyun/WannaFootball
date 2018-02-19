@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.register;
+package com.example.parkminhyun.wannafootball.screen.activity.register;
 
 import android.app.Activity;
 import android.view.View;
@@ -14,7 +14,7 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-import static com.example.parkminhyun.wannafootball.screen.register.RegisterPagePresenter.USER_LOGIN;
+import static com.example.parkminhyun.wannafootball.screen.activity.register.RegisterPagePresenter.USER_LOGIN;
 
 /**
  * 현재 사용하지 않는 Class 추후 참고를 위해 남겨놓음.

@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.login;
+package com.example.parkminhyun.wannafootball.screen.activity.login;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,7 +7,7 @@ import android.view.View;
 import com.example.parkminhyun.wannafootball.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
-import com.example.parkminhyun.wannafootball.screen.main.MainActivity;
+import com.example.parkminhyun.wannafootball.screen.activity.main.MainActivity;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;

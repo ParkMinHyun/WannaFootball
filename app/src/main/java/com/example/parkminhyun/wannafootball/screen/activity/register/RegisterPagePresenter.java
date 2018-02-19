@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.register;
+package com.example.parkminhyun.wannafootball.screen.activity.register;
 
 import android.text.Editable;
 import android.text.TextWatcher;

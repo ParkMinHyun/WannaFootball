@@ -4,11 +4,11 @@
     <string name="next_login">건너뛰기</string>
 
     <!--Navigation View String-->
+    <string name="nav_item_home">홈 화면</string>
     <string name="nav_item_my_info">내 정보</string>
     <string name="nav_item_team_info">내 팀 정보</string>
     <string name="nav_item_create_team">팀 생성</string>
     <string name="nav_item_search_team">팀 검색</string>
-    <string name="nav_item_matching_team">팀 매칭</string>
     <string name="nav_item_play_matching">경기 매칭</string>
     <string name="nav_item_enroll_matching_team">매칭 등록</string>
 

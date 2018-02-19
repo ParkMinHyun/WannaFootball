@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.login;
+package com.example.parkminhyun.wannafootball.screen.activity.login;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

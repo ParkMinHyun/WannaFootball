@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.register;
+package com.example.parkminhyun.wannafootball.screen.activity.register;
 
 import com.google.firebase.database.DatabaseReference;
 import com.rengwuxian.materialedittext.MaterialEditText;

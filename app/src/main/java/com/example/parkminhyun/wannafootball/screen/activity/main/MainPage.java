@@ -1,6 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.main;
-
-import org.json.JSONObject;
+package com.example.parkminhyun.wannafootball.screen.activity.main;
 
 /**
  * Created by ParkMinHyun on 2018-02-15.
