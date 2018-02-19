@@ -50,7 +50,6 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/main_drawer_header"
         app:itemIconTint="@drawable/drawer_item_color"
-        app:itemTextColor="@drawable/drawer_item_color"
-        app:menu="@menu/drawer_menu" />
+        app:itemTextColor="@drawable/drawer_item_color" />
 
 </android.support.v4.widget.DrawerLayout>

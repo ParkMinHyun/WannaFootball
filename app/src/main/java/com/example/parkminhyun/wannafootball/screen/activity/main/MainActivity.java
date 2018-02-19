@@ -23,7 +23,7 @@ import com.example.parkminhyun.wannafootball.screen.fragment.SearchTeamFragment;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements MainPage.View{
+public class MainActivity extends BaseActivity implements MainPage.View {
 
     @BindView(R.id.mainFragmentContainer)
     View mainFragmentContainer;
@@ -54,14 +54,15 @@ public class MainActivity extends BaseActivity implements MainPage.View{
     }
 
     private void initView() {
-
+        navigationView.inflateMenu(R.menu.drawer_menu_temp_team);
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             menuItem.setChecked(true);
             drawerLayout.closeDrawers();
 
             int id = menuItem.getItemId();
-            if(id == currentFragmentID)
+            if (id == currentFragmentID) {
                 return true;
+            }
 
             switch (id) {
                 case R.id.navigation_item_home:
@@ -129,16 +130,22 @@ public class MainActivity extends BaseActivity implements MainPage.View{
         doubleBackToExitPressedOnce = true;
         Toast.makeText(this, getResources().getString(R.string.double_exit_button_click), Toast.LENGTH_SHORT).show();
 
-        new Handler().postDelayed(() -> doubleBackToExitPressedOnce=false, 2000);
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce = false, 2000);
     }
 
     @Override
-    protected void createPresenter() { mainPresenter = new MainPagePresenter(this); }
+    protected void createPresenter() {
+        mainPresenter = new MainPagePresenter(this);
+    }
 
     @Override
-    protected Activity getViews() { return this; }
+    protected Activity getViews() {
+        return this;
+    }
 
     @Override
-    protected int getLayout() { return R.layout.activity_main; }
+    protected int getLayout() {
+        return R.layout.activity_main;
+    }
 
 }
