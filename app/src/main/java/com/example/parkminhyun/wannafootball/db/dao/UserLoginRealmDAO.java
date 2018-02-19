@@ -1,7 +1,7 @@
 package com.example.parkminhyun.wannafootball.db.dao;
 
 
-import com.example.parkminhyun.wannafootball.db.RO.UserLoginRO;
+import com.example.parkminhyun.wannafootball.db.ro.UserLoginRO;
 
 /**
  * Created by ParkMinHyun on 2018-02-18.

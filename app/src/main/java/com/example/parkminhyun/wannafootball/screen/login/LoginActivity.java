@@ -23,7 +23,7 @@ public class LoginActivity extends BaseActivity implements LoginPage.View {
     @BindView(R.id.nextLoginButton)
     RangeScaleTextView nextLoginButton;
 
-    LoginPage.Presenter loginPresenter;
+    private LoginPage.Presenter loginPresenter;
 
     @Override
     protected void init(BaseActivity context) {

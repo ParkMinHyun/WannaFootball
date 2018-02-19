@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.db.RO;
+package com.example.parkminhyun.wannafootball.db.ro;
 
 import io.realm.RealmObject;
 
