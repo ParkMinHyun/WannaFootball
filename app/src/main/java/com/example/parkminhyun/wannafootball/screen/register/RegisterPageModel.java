@@ -2,6 +2,7 @@ package com.example.parkminhyun.wannafootball.screen.register;
 
 /**
  * Created by ParkMinHyun on 2018-02-15.
+ * 현재 사용하지 않는 Class 추후 참고를 위해 남겨놓음.
  */
 
 public class RegisterPageModel {

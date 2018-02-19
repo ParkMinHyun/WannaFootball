@@ -16,6 +16,10 @@ import butterknife.OnClick;
 
 import static com.example.parkminhyun.wannafootball.screen.register.RegisterPagePresenter.USER_LOGIN;
 
+/**
+ * 현재 사용하지 않는 Class 추후 참고를 위해 남겨놓음.
+ */
+
 public class RegisterActivity extends BaseActivity implements RegisterPage.View {
 
     @BindView(R.id.registerEmailText)
