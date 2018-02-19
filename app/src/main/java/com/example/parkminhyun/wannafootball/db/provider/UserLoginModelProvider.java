@@ -23,7 +23,5 @@ public class UserLoginModelProvider {
         return userLoginRealmDAO.getUserLoginStatus();
     }
 
-    public void updateUserLogin() { userLoginRealmDAO.setUserLoginStatus(); }
-
     public void updateUserLogin(String id) { userLoginRealmDAO.setUserLoginStatus(id);}
 }

@@ -12,6 +12,8 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTED_USER_ID;
+
 /**
  * Created by ParkMinHyun on 2018-02-15.
  */
@@ -91,7 +93,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
 
     @Override
     public void nextLoginButtonClick() {
-        userLoginModelProvider.updateUserLogin();
+        userLoginModelProvider.updateUserLogin(NOT_INPUTED_USER_ID);
         startMainActivity();
     }
 
