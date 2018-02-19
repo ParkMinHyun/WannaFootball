@@ -10,7 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.parkminhyun.wannafootball.BaseActivity;
+import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RiceCakeView;
 import com.example.parkminhyun.wannafootball.screen.fragment.CreateTeamFragment;
@@ -38,61 +38,53 @@ public class MainActivity extends BaseActivity implements MainPage.View {
     RiceCakeView mainMenuButton;
 
     private MainPage.Presenter mainPresenter;
-    private int currentFragmentID;
+
     private boolean doubleBackToExitPressedOnce = false;
 
     @Override
-    protected void init(BaseActivity context) {
+    protected void initView() {
         initFragment();
-        initView();
+        initNavigationView();
     }
 
+    @Override
+    protected void initPresenter() {}
+
     private void initFragment() {
-        currentFragmentID = R.id.navigation_item_home;
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.add(R.id.mainFragmentContainer, new HomeFragment()).commit();
     }
 
-    private void initView() {
+    private void initNavigationView() {
         navigationView.inflateMenu(R.menu.drawer_menu_temp_team);
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             menuItem.setChecked(true);
             drawerLayout.closeDrawers();
 
             int id = menuItem.getItemId();
-            if (id == currentFragmentID) {
-                return true;
-            }
-
             switch (id) {
                 case R.id.navigation_item_home:
                     replaceFragment(new HomeFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
 
                 case R.id.navigation_item_my_info:
                     replaceFragment(new MyInfoFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
 
                 case R.id.navigation_item_create_team:
                     replaceFragment(new CreateTeamFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
 
                 case R.id.navigation_item_search_team:
                     replaceFragment(new SearchTeamFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
 
                 case R.id.navigation_item_search_matching:
                     replaceFragment(new SearchMatchingFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
 
                 case R.id.navigation_item_enroll_matching:
                     replaceFragment(new EnrollMatchingFragment());
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
                     break;
             }
             return true;

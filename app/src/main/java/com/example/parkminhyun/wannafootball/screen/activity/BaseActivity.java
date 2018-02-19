@@ -1,6 +1,7 @@
-package com.example.parkminhyun.wannafootball;
+package com.example.parkminhyun.wannafootball.screen.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         setContentView(getLayout());
         ButterKnife.bind(getViews());
 
-        init(this);
+        initView();
+        initPresenter();
     }
 
     /**
@@ -57,9 +59,55 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     /**
+     * StartActivity 관련 Method
+     */
+    protected void startActivity(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        startActivity(intent);
+    }
+
+    protected void startActivityClearTop(Class<?> cls) {
+        Intent intent = new Intent(this, cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
+    protected void startActivity(Class<?> cls, Bundle bundle) {
+        Intent intent = new Intent(this, cls);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivity(intent);
+    }
+
+    protected void startActivityThenKill(Class<?> cls) {
+        startActivityThenKill(cls, null);
+    }
+
+    protected void startActivityThenKill(Class<?> cls, Bundle bundle) {
+        startActivity(cls, bundle);
+        this.finish();
+    }
+
+    protected void startActivityForResult(Class<?> cls, int requestCode) {
+        Intent intent = new Intent(this, cls);
+        startActivityForResult(intent, requestCode);
+    }
+
+    protected void startActivityForResult(Class<?> cls, int requestCode, Bundle bundle) {
+        Intent intent = new Intent(this, cls);
+        if (null != bundle) {
+            intent.putExtras(bundle);
+        }
+        startActivityForResult(intent, requestCode);
+    }
+
+    /**
      * 밑의 Method는 Activity 생성시 꼭 필요하기에 abstract로 구현.
      */
-    protected abstract void init(BaseActivity context);
+    protected abstract void initView();
+
+    protected abstract void initPresenter();
 
     protected abstract void createPresenter();
 

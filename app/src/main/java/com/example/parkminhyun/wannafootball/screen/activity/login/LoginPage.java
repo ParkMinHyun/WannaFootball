@@ -1,6 +1,6 @@
 package com.example.parkminhyun.wannafootball.screen.activity.login;
 
-import com.example.parkminhyun.wannafootball.BaseActivity;
+import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 

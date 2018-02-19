@@ -1,12 +1,11 @@
 package com.example.parkminhyun.wannafootball.screen.activity.login;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.view.View;
 
-import com.example.parkminhyun.wannafootball.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
+import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.screen.activity.main.MainActivity;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
@@ -26,8 +25,11 @@ public class LoginActivity extends BaseActivity implements LoginPage.View {
     private LoginPage.Presenter loginPresenter;
 
     @Override
-    protected void init(BaseActivity context) {
-        loginPresenter.initNaverLogin(context);
+    protected void initView() {}
+
+    @Override
+    protected void initPresenter() {
+        loginPresenter.initNaverLogin(this);
     }
 
     @OnClick({R.id.naverLoginButton, R.id.nextLoginButton})
@@ -46,11 +48,10 @@ public class LoginActivity extends BaseActivity implements LoginPage.View {
         naverLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     }
 
+
     @Override
     public void startMainActivity() {
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
+        startActivityClearTop(MainActivity.class);
     }
 
     @Override

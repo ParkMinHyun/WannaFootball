@@ -3,7 +3,7 @@ package com.example.parkminhyun.wannafootball.screen.activity.register;
 import android.app.Activity;
 import android.view.View;
 
-import com.example.parkminhyun.wannafootball.BaseActivity;
+import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.MainApplication;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
@@ -47,12 +47,15 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
     private DatabaseReference databaseUser;
 
     @Override
-    public void init(BaseActivity context){
-        initView();
+    public void initView(){
+        initPasswordText();
         initFireBaseReference();
     }
 
-    private void initView() {
+    @Override
+    protected void initPresenter() {}
+
+    private void initPasswordText() {
         registerPresenter.passwordCheckWatcher(passwordText, passwordCheckText);
     }
 
