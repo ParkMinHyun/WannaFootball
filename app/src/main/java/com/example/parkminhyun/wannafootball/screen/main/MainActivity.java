@@ -1,6 +1,7 @@
 package com.example.parkminhyun.wannafootball.screen.main;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -26,6 +27,8 @@ public class MainActivity extends BaseActivity implements MainPage.View{
     RiceCakeView mainMenuButton;
 
     private MainPage.Presenter mainPresenter;
+
+    private boolean doubleBackToExitPressedOnce = false;
 
     @Override
     protected void init(BaseActivity context) {
@@ -73,6 +76,25 @@ public class MainActivity extends BaseActivity implements MainPage.View{
         if (id == R.id.mainMenuButton) {
             drawerLayout.openDrawer(GravityCompat.START);
         }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        this.finishAffinity();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, getResources().getString(R.string.double_exit_button_click), Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(() -> doubleBackToExitPressedOnce=false, 2000);
     }
 
     @Override
