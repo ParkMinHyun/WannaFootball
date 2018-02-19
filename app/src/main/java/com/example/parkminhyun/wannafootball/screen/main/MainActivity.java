@@ -42,26 +42,25 @@ public class MainActivity extends BaseActivity implements MainPage.View{
 
             int id = menuItem.getItemId();
             switch (id) {
-                case R.id.navigation_item_attachment:
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                    break;
-
-                case R.id.navigation_item_images:
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                    break;
-
-                case R.id.navigation_item_location:
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                    break;
-
-                case R.id.nav_sub_menu_item01:
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                    break;
-
-                case R.id.nav_sub_menu_item02:
-                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
-                    break;
-
+//                case R.id.navigation_item_attachment:
+//                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                    break;
+//
+//                case R.id.navigation_item_images:
+//                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                    break;
+//
+//                case R.id.navigation_item_location:
+//                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                    break;
+//
+//                case R.id.nav_sub_menu_item01:
+//                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                    break;
+//
+//                case R.id.nav_sub_menu_item02:
+//                    Toast.makeText(MainActivity.this, menuItem.getTitle(), Toast.LENGTH_LONG).show();
+//                    break;
             }
 
             return true;
