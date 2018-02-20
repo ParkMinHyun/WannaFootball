@@ -39,12 +39,12 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
-    protected abstract void createPresenter();
-
     protected abstract View initContentView(LayoutInflater inflater, @Nullable ViewGroup container,
                                             @Nullable Bundle savedInstanceState);
 
     protected abstract void initView(View view);
+
+    protected abstract void createPresenter();
 
     protected void startActivity(Class<?> cls) {
         Intent intent = new Intent(getActivity(), cls);

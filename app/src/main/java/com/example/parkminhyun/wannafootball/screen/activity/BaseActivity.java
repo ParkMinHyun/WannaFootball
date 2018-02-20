@@ -89,19 +89,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.finish();
     }
 
-    protected void startActivityForResult(Class<?> cls, int requestCode) {
-        Intent intent = new Intent(this, cls);
-        startActivityForResult(intent, requestCode);
-    }
-
-    protected void startActivityForResult(Class<?> cls, int requestCode, Bundle bundle) {
-        Intent intent = new Intent(this, cls);
-        if (null != bundle) {
-            intent.putExtras(bundle);
-        }
-        startActivityForResult(intent, requestCode);
-    }
-
     /**
      * 밑의 Method는 Activity 생성시 꼭 필요하기에 abstract로 구현.
      */
