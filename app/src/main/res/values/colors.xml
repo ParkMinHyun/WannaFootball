@@ -42,4 +42,6 @@
 
     <color name="base_color">#0056d3</color>
     <color name="error_color">#982360</color>
+
+    <color name="home_bottom_text_normal_color">#80ffffff</color>
 </resources>

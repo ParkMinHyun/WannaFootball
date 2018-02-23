@@ -5,14 +5,12 @@ import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RiceCakeView;
+import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.screen.fragment.CreateTeamFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.EnrollMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
@@ -27,9 +25,6 @@ public class MainActivity extends BaseActivity implements MainPage.View {
 
     @BindView(R.id.mainFragmentContainer)
     View mainFragmentContainer;
-
-    @BindView(R.id.drawerLayout)
-    DrawerLayout drawerLayout;
 
     @BindView(R.id.navigationView)
     NavigationView navigationView;
@@ -59,7 +54,6 @@ public class MainActivity extends BaseActivity implements MainPage.View {
         navigationView.inflateMenu(R.menu.drawer_menu_temp_team);
         navigationView.setNavigationItemSelectedListener(menuItem -> {
             menuItem.setChecked(true);
-            drawerLayout.closeDrawers();
 
             int id = menuItem.getItemId();
             switch (id) {
@@ -97,7 +91,6 @@ public class MainActivity extends BaseActivity implements MainPage.View {
         int id = view.getId();
 
         if (id == R.id.mainMenuButton) {
-            drawerLayout.openDrawer(GravityCompat.START);
         }
     }
 
