@@ -2,11 +2,9 @@ package com.example.parkminhyun.wannafootball.screen.activity.login;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
-import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
-import com.nhn.android.naverlogin.OAuthLogin;
+import com.example.parkminhyun.wannafootball.common.login.LoginHelper;
 import com.nhn.android.naverlogin.OAuthLoginHandler;
 
 import org.json.JSONException;
@@ -21,32 +19,21 @@ import static com.example.parkminhyun.wannafootball.common.constant.UserConstant
 public class LoginPagePresenter implements LoginInterface.Presenter {
 
     private LoginInterface.View loginView;
-
-    private final String CLIENT_ID = "ajkQnVpM4y94tf3XjIlw";
-    private final String CLIENT_SECRET = "TyVWYW36Mr";
-    private final String CLIENT_NAME = "DoYouWantToSoccer?";
-    private final String USER_URL = "https://openapi.naver.com/v1/nid/me";
-
     private Context context;
-    public OAuthLogin mOAuthLoginModule;
-
-    private UserLoginModelProvider userLoginModelProvider;
 
     public LoginPagePresenter(LoginInterface.View loginView) {
         this.loginView = loginView;
-        this.userLoginModelProvider = new UserLoginModelProvider();
     }
 
     @Override
     public void initNaverLogin(BaseActivity context) {
         // 이미 로그인 되어 있거나, 다음에 보기 클릭했을 경우 Skip 하기
         // TODO : 나중에 Splash 만들면 Splash 화면에서 분기처리 해주기
-        if (userLoginModelProvider.getUserLogined())
+        if (LoginHelper.isLoggedIn())
             startMainActivity();
         else {
             this.context = context;
-            mOAuthLoginModule = OAuthLogin.getInstance();
-            mOAuthLoginModule.init(context, CLIENT_ID, CLIENT_SECRET, CLIENT_NAME);
+            LoginHelper.initNaverAuthInstance(context);
             loginView.setOAuthLoginHandler(mOAuthLoginHandler);
         }
     }
@@ -56,27 +43,23 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
         @Override
         public void run(boolean success) {
             if (success) {
-                String accessToken = mOAuthLoginModule.getAccessToken(context);
+                String accessToken = LoginHelper.getAccessToken(context);
                 setUserInfo(accessToken);
 
             } else {
-                String errorCode = mOAuthLoginModule.getLastErrorCode(context).getCode();
-                String errorDesc = mOAuthLoginModule.getLastErrorDesc(context);
-                Toast.makeText(context, "errorCode:" + errorCode + ", errorDesc:" + errorDesc, Toast.LENGTH_SHORT).show();
             }
         }
     };
 
     private void setUserInfo(String accessToken) {
         new Thread(() -> {
-            String response = mOAuthLoginModule.requestApi(context, accessToken, USER_URL);
+            String response = LoginHelper.NaverRequestApi(context, accessToken);
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 String userID = jsonObject.getJSONObject("response").getString("id");
-                userLoginModelProvider.updateUserLogin(userID);
+                LoginHelper.updateUserLogin(userID, true);
                 startMainActivity();
-            }
-            catch (JSONException e) {
+            } catch (JSONException e) {
                 e.printStackTrace();
             }
         }).start();
@@ -88,12 +71,12 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
 
     @Override
     public void naverLoginButtonClick() {
-        loginView.startOauthLoginActivity(mOAuthLoginModule, mOAuthLoginHandler);
+        loginView.startOauthLoginActivity(LoginHelper.getOAuthLoginModule(), mOAuthLoginHandler);
     }
 
     @Override
     public void nextLoginButtonClick() {
-        userLoginModelProvider.updateUserLogin(NOT_INPUTED_USER_ID);
+        LoginHelper.updateUserLogin(NOT_INPUTED_USER_ID, true);
         startMainActivity();
     }
 

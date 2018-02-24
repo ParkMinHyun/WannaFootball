@@ -13,6 +13,11 @@ public class UserLoginModelProvider {
 
     private final UserLoginRealmDAO userLoginRealmDAO;
 
+
+    public static synchronized UserLoginModelProvider getInstance(){
+        return Singleton.instance;
+    }
+
     public UserLoginModelProvider(){
         this.userLoginRealmDAO = new UserLoginRealmDAO();
     }
@@ -23,5 +28,9 @@ public class UserLoginModelProvider {
         return userLoginRealmDAO.getUserLoginStatus();
     }
 
-    public void updateUserLogin(String id) { userLoginRealmDAO.setUserLoginStatus(id);}
+    public void updateUserLogin(String id, Boolean loginStatus) { userLoginRealmDAO.setUserLoginStatus(id, loginStatus);}
+
+    private static class Singleton{
+        private static final UserLoginModelProvider instance = new UserLoginModelProvider();
+    }
 }
