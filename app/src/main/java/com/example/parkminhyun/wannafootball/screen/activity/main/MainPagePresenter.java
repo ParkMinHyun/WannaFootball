@@ -21,14 +21,11 @@ import static com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu.
 public class MainPagePresenter implements MainPage.Presenter {
 
     private MainPage.View mainView;
-    private MainPageModel mainModel;
-
     private FragmentManager fragmentManager;
     private Fragment fragment;
 
     public MainPagePresenter(MainPage.View mainPageView) {
         this.mainView = mainPageView;
-        this.mainModel = new MainPageModel();
     }
 
     @Override

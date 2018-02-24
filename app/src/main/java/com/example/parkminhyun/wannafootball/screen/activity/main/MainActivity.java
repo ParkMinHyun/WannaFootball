@@ -9,7 +9,7 @@ import android.widget.Toast;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
-import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
+import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -17,7 +17,12 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements MainPage.View {
 
-    @BindViews({R.id.home_button, R.id.home_search_match_button, R.id.home_enroll_match_button, R.id.home_search_team_button, R.id.home_my_info_button})
+    @BindViews({
+            R.id.home_button,
+            R.id.home_search_match_button,
+            R.id.home_enroll_match_button,
+            R.id.home_search_team_button,
+            R.id.home_my_info_button})
     TextView[] mainBottomMenuTextViews;
 
     @BindView(R.id.mainFragmentContainer)

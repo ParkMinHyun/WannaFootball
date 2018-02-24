@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
-import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
+import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 import com.example.parkminhyun.wannafootball.screen.activity.main.MainActivity;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;

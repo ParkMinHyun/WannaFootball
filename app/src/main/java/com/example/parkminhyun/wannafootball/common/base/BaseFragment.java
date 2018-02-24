@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.fragment;
+package com.example.parkminhyun.wannafootball.common.base;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,11 +34,6 @@ public abstract class BaseFragment extends Fragment {
         initView();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
-
     protected abstract void initView();
 
     protected abstract void createPresenter();
@@ -58,26 +53,8 @@ public abstract class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
-    protected void startActivityThenKill(Class<?> cls) {
-        startActivityThenKill(cls, null);
-    }
-
     protected void startActivityThenKill(Class<?> cls, Bundle bundle) {
         startActivity(cls, bundle);
         getActivity().finish();
     }
-
-    protected void startActivityForResult(Class<?> cls, int requestCode) {
-        Intent intent = new Intent(getActivity(), cls);
-        startActivityForResult(intent, requestCode);
-    }
-
-    protected void startActivityForResult(Class<?> cls, int requestCode, Bundle bundle) {
-        Intent intent = new Intent(getActivity(), cls);
-        if (null != bundle) {
-            intent.putExtras(bundle);
-        }
-        startActivityForResult(intent, requestCode);
-    }
-
 }

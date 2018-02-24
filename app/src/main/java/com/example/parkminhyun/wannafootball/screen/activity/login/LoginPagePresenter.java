@@ -4,7 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
+import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
 import com.nhn.android.naverlogin.OAuthLoginHandler;

@@ -11,6 +11,7 @@
         android:gravity="right">
 
         <TextView
+            android:id="@+id/reviseMyInfoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -35,7 +36,7 @@
         android:gravity="center">
 
         <TextView
-            android:id="@+id/myIdView"
+            android:id="@+id/myNameView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -48,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
-            android:layout_toEndOf="@+id/myIdView"
+            android:layout_toEndOf="@+id/myNameView"
             android:text="@string/profile_player" />
     </RelativeLayout>
 

@@ -3,7 +3,7 @@ package com.example.parkminhyun.wannafootball.screen.activity.register;
 import android.app.Activity;
 import android.view.View;
 
-import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
+import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 import com.example.parkminhyun.wannafootball.MainApplication;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;

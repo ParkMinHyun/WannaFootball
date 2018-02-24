@@ -6,7 +6,7 @@ import android.support.v4.app.Fragment;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.screen.fragment.EnrollMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
-import com.example.parkminhyun.wannafootball.screen.fragment.MyInfoFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.myinfo.MyInfoFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.SearchMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.SearchTeamFragment;
 

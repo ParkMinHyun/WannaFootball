@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.activity;
+package com.example.parkminhyun.wannafootball.common.base;
 
 import android.app.Activity;
 import android.content.Intent;
