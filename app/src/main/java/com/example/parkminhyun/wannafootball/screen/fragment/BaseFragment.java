@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import butterknife.ButterKnife;
 
 /**
  * Created by ParkMinHyun on 2018-02-20.
@@ -17,34 +18,32 @@ public abstract class BaseFragment extends Fragment {
 
     public View view;
 
-    protected AppCompatActivity context;
-
     @Override
     @Nullable
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        context = (AppCompatActivity) getActivity();
-
-        if (view != null) {
-            ViewGroup parent = (ViewGroup) view.getParent();
-            if (parent != null) {
-                parent.removeView(view);
-            }
-        } else {
-            view = initContentView(inflater, container, savedInstanceState);
-        }
+        View view = inflater.inflate(getLayoutResId(), container, false);
 
         createPresenter();
-        initView(view);
+        initFragment(view);
         return view;
     }
 
-    protected abstract View initContentView(LayoutInflater inflater, @Nullable ViewGroup container,
-                                            @Nullable Bundle savedInstanceState);
+    private void initFragment(View view){
+        ButterKnife.bind(this,view);
+        initView();
+    }
 
-    protected abstract void initView(View view);
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    protected abstract void initView();
 
     protected abstract void createPresenter();
+
+    protected abstract int getLayoutResId();
 
     protected void startActivity(Class<?> cls) {
         Intent intent = new Intent(getActivity(), cls);
