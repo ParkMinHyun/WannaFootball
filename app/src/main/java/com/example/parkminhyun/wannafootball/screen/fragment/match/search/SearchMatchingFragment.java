@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.fragment;
+package com.example.parkminhyun.wannafootball.screen.fragment.match.search;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,10 +12,10 @@ import com.example.parkminhyun.wannafootball.R;
  * Created by ParkMinHyun on 2018-02-20.
  */
 
-public class EnrollMatchingFragment extends Fragment {
+public class SearchMatchingFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_enroll_matching, container, false);
+        return inflater.inflate(R.layout.fragment_search_matching_team, container, false);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.fragment;
+package com.example.parkminhyun.wannafootball.screen.fragment.home;
 
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.base.BaseFragment;

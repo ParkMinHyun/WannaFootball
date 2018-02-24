@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
 import com.example.parkminhyun.wannafootball.R;
-import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.home.HomeFragment;
 
 import static com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu.ENROLL_MATCH;
 import static com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu.HOME;
@@ -18,13 +18,13 @@ import static com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu.
  * Created by ParkMinHyun on 2018-02-15.
  */
 
-public class MainPagePresenter implements MainPage.Presenter {
+public class MainPagePresenter implements MainInterface.Presenter {
 
-    private MainPage.View mainView;
+    private MainInterface.View mainView;
     private FragmentManager fragmentManager;
     private Fragment fragment;
 
-    public MainPagePresenter(MainPage.View mainPageView) {
+    public MainPagePresenter(MainInterface.View mainPageView) {
         this.mainView = mainPageView;
     }
 

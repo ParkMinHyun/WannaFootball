@@ -18,9 +18,9 @@ import static com.example.parkminhyun.wannafootball.common.constant.UserConstant
  * Created by ParkMinHyun on 2018-02-15.
  */
 
-public class LoginPagePresenter implements LoginPage.Presenter {
+public class LoginPagePresenter implements LoginInterface.Presenter {
 
-    private LoginPage.View loginView;
+    private LoginInterface.View loginView;
 
     private final String CLIENT_ID = "ajkQnVpM4y94tf3XjIlw";
     private final String CLIENT_SECRET = "TyVWYW36Mr";
@@ -32,7 +32,7 @@ public class LoginPagePresenter implements LoginPage.Presenter {
 
     private UserLoginModelProvider userLoginModelProvider;
 
-    public LoginPagePresenter(LoginPage.View loginView) {
+    public LoginPagePresenter(LoginInterface.View loginView) {
         this.loginView = loginView;
         this.userLoginModelProvider = new UserLoginModelProvider();
     }

@@ -8,7 +8,7 @@ import com.nhn.android.naverlogin.OAuthLoginHandler;
  * Created by ParkMinHyun on 2018-02-15.
  */
 
-public interface LoginPage {
+public interface LoginInterface {
 
     interface View {
         void startMainActivity();

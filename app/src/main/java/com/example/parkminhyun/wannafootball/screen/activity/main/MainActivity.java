@@ -15,7 +15,7 @@ import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity implements MainPage.View {
+public class MainActivity extends BaseActivity implements MainInterface.View {
 
     @BindViews({
             R.id.home_button,
@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity implements MainPage.View {
     @BindView(R.id.mainFragmentContainer)
     View mainFragmentContainer;
 
-    private MainPage.Presenter mainPresenter;
+    private MainInterface.Presenter mainPresenter;
 
     private boolean doubleBackToExitPressedOnce = false;
 

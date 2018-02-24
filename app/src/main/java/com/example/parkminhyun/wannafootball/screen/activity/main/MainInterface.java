@@ -8,7 +8,7 @@ import com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu;
  * Created by ParkMinHyun on 2018-02-15.
  */
 
-public interface MainPage {
+public interface MainInterface {
 
     interface View {
         void updateBottomMenuButton(MainBottomMenu selectedMenu);

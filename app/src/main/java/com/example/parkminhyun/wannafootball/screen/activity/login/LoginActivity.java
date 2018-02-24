@@ -14,7 +14,7 @@ import com.nhn.android.naverlogin.ui.view.OAuthLoginButton;
 import butterknife.BindView;
 import butterknife.OnClick;
 
-public class LoginActivity extends BaseActivity implements LoginPage.View {
+public class LoginActivity extends BaseActivity implements LoginInterface.View {
 
     @BindView(R.id.naverLoginButton)
     OAuthLoginButton naverLoginButton;
@@ -22,7 +22,7 @@ public class LoginActivity extends BaseActivity implements LoginPage.View {
     @BindView(R.id.nextLoginButton)
     RangeScaleTextView nextLoginButton;
 
-    private LoginPage.Presenter loginPresenter;
+    private LoginInterface.Presenter loginPresenter;
 
     @Override
     protected void initView() {}

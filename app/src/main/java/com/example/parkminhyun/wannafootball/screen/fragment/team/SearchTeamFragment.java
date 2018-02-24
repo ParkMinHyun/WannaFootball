@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.screen.fragment;
+package com.example.parkminhyun.wannafootball.screen.fragment.team;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
