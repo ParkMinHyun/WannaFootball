@@ -7,9 +7,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.parkminhyun.wannafootball.R;
+import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 import com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
-import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -34,6 +34,7 @@ public class MainActivity extends BaseActivity implements MainInterface.View {
 
     @Override
     protected void initView() {
+        updateBottomMenuButton(MainBottomMenu.HOME);
     }
 
     @Override

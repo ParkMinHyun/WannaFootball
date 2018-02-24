@@ -5,5 +5,5 @@ package com.example.parkminhyun.wannafootball.common.constant;
  */
 
 public class UserConstant {
-    public static final String NOT_INPUTED_USER_ID = "null";
+    public static final String NOT_INPUTTED_USER_ID = "null";
 }

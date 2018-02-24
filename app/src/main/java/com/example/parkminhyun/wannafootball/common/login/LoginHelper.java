@@ -5,7 +5,7 @@ import android.content.Context;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
 
-import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTED_USER_ID;
+import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTTED_USER_ID;
 
 /**
  * Created by ParkMinHyun on 2018-02-25.
@@ -29,12 +29,17 @@ public class LoginHelper {
 
     public static boolean isLoggedIn() {
         userLoginModelProvider = UserLoginModelProvider.getInstance();
-        return userLoginModelProvider.getUserLogined();
+        return userLoginModelProvider.getUserLoggedIn();
+    }
+
+    public static boolean isLoginScreenSkipped() {
+        userLoginModelProvider = UserLoginModelProvider.getInstance();
+        return userLoginModelProvider.getUserLoginScreenSkipStatus();
     }
 
     public static boolean naverLogout(Context context) {
         if (mOAuthLoginModule.logoutAndDeleteToken(context)) {
-            updateUserLogin(NOT_INPUTED_USER_ID, false);
+            updateUserLogin(NOT_INPUTTED_USER_ID, false);
             return true;
         }
         return false;

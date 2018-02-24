@@ -88,8 +88,19 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
     }
 
     @Override
+    public void showLayout(Boolean userLoginStatus) {
+        if (userLoginStatus) {
+            userLoginLayout.setVisibility(View.VISIBLE);
+            userNotLoginLayout.setVisibility(View.GONE);
+        } else {
+            userLoginLayout.setVisibility(View.GONE);
+            userNotLoginLayout.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @Override
     public void startLoginActivity() {
-        startActivity(LoginActivity.class);
+        startActivityClearTop(LoginActivity.class);
     }
 
     @Override
@@ -102,14 +113,4 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
         return R.layout.fragment_my_info;
     }
 
-    @Override
-    public void showLayout(Boolean userLoginStatus) {
-        if (userLoginStatus) {
-            userLoginLayout.setVisibility(View.VISIBLE);
-            userNotLoginLayout.setVisibility(View.GONE);
-        } else {
-            userLoginLayout.setVisibility(View.GONE);
-            userNotLoginLayout.setVisibility(View.VISIBLE);
-        }
-    }
 }

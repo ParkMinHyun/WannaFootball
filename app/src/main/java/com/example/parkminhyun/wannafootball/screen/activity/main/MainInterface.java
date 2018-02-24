@@ -18,9 +18,13 @@ public interface MainInterface {
         void initFragment();
 
         void homeButtonClick();
+
         void searchMatchButtonClick();
+
         void enrollMatchButtonClick();
+
         void searchTeamButtonClick();
+
         void myInfoButtonClick();
 
         void setSupportFragmentManager(FragmentManager supportFragmentManager);

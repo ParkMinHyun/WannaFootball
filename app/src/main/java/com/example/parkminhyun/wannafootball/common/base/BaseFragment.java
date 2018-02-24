@@ -45,6 +45,12 @@ public abstract class BaseFragment extends Fragment {
         startActivity(intent);
     }
 
+    protected void startActivityClearTop(Class<?> cls) {
+        Intent intent = new Intent(getActivity(), cls);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
+    }
+
     protected void startActivity(Class<?> cls, Bundle bundle) {
         Intent intent = new Intent(getActivity(), cls);
         if (null != bundle) {
