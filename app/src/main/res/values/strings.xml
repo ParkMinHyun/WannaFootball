@@ -21,9 +21,12 @@
 
     <string name="double_exit_button_click">한 번더 누르시면 앱이 종료됩니다.</string>
 
+
     <string name="home_bottom_search_match_text">매치검색</string>
     <string name="home_bottom_enroll_match_text">매치등록</string>
     <string name="home_bottom_home_text">홈</string>
     <string name="home_bottom_search_team_text">팀검색</string>
     <string name="home_bottom_my_info_text">내정보</string>
+    <string name="tab_not_selected_button"> 탭 버튼</string>
+    <string name="tab_selected_button"> 탭 선택됨 버튼</string>
 </resources>

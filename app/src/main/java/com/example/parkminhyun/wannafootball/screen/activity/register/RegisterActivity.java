@@ -7,7 +7,7 @@ import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
 import com.example.parkminhyun.wannafootball.MainApplication;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
-import com.example.parkminhyun.wannafootball.common.util.AnimationDirection;
+import com.example.parkminhyun.wannafootball.common.enums.AnimationDirection;
 import com.google.firebase.database.DatabaseReference;
 import com.rengwuxian.materialedittext.MaterialEditText;
 

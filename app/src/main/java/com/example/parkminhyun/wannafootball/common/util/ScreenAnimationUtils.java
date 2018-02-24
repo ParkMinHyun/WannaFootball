@@ -1,6 +1,7 @@
 package com.example.parkminhyun.wannafootball.common.util;
 
 import com.example.parkminhyun.wannafootball.R;
+import com.example.parkminhyun.wannafootball.common.enums.AnimationDirection;
 
 /**
  * Created by ParkMinHyun on 2018-02-17.
