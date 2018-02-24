@@ -14,11 +14,10 @@ import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
 
 public class MainPagePresenter implements MainPage.Presenter {
 
-    MainPage.View mainView;
-    MainPageModel mainModel;
+    private MainPage.View mainView;
+    private MainPageModel mainModel;
 
     private FragmentManager fragmentManager;
-    private FragmentTransaction fragmentTransaction;
     private Fragment fragment;
 
     public MainPagePresenter(MainPage.View mainPageView) {
@@ -28,8 +27,9 @@ public class MainPagePresenter implements MainPage.Presenter {
 
     @Override
     public void initFragment() {
-        fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.mainFragmentContainer, new HomeFragment()).commit();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.add(R.id.mainFragmentContainer, new HomeFragment(), MainBottomMenu.HOME.name());
+        fragmentTransaction.commit();
     }
 
     @Override
@@ -63,17 +63,11 @@ public class MainPagePresenter implements MainPage.Presenter {
     }
 
     private void updateFragment(String selectedFragmentName) {
+        fragment = MainBottomMenu.getFragment(selectedFragmentName);
 
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragment = fragmentManager.findFragmentByTag(selectedFragmentName);
-
-        if (fragment == null) {
-            fragment = MainBottomMenu.getFragment(selectedFragmentName);
-            fragmentTransaction.add(R.id.mainFragmentContainer, fragment, selectedFragmentName).commit();
-        }
-        else {
-            fragmentTransaction.replace(R.id.mainFragmentContainer, fragment, selectedFragmentName).commit();
-        }
+        fragmentTransaction.replace(R.id.mainFragmentContainer, fragment, selectedFragmentName);
+        fragmentTransaction.commit();
     }
 
     @Override

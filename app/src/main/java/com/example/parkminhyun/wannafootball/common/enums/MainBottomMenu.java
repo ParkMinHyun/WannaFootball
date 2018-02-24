@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.screen.fragment.EnrollMatchingFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.MyInfoFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.SearchMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.SearchTeamFragment;
@@ -22,6 +23,7 @@ public enum MainBottomMenu {
     MY_INFO(R.id.home_my_info_button);
 
     private int layoutId;
+    private static Fragment currentFragment = new HomeFragment();
 
     MainBottomMenu(@IdRes int layoutId) {
         this.layoutId = layoutId;
@@ -31,14 +33,19 @@ public enum MainBottomMenu {
         return layoutId;
     }
 
-    public static Fragment getFragment(String selectedMenuName){
-        if(selectedMenuName.equals(SEARCH_MATCH.name()))
-            return new SearchMatchingFragment();
-        else if(selectedMenuName.equals(ENROLL_MATCH.name()))
-            return new EnrollMatchingFragment();
-        else if(selectedMenuName.equals(SEARCH_TEAM.name()))
-            return new SearchTeamFragment();
-        else
-            return new MyInfoFragment();
+    public static Fragment getFragment(String selectedMenuName) {
+
+        if (selectedMenuName.equals(SEARCH_MATCH.name())) {
+            currentFragment = new SearchMatchingFragment();
+        } else if (selectedMenuName.equals(ENROLL_MATCH.name())) {
+            currentFragment = new EnrollMatchingFragment();
+        } else if (selectedMenuName.equals(SEARCH_TEAM.name())) {
+            currentFragment = new SearchTeamFragment();
+        } else if (selectedMenuName.equals(MY_INFO.name())) {
+            currentFragment = new MyInfoFragment();
+        } else {
+            currentFragment = new HomeFragment();
+        }
+        return currentFragment;
     }
 }
