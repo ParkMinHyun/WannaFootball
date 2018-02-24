@@ -2,8 +2,6 @@ package com.example.parkminhyun.wannafootball.screen.activity.main;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -12,14 +10,12 @@ import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
 import com.example.parkminhyun.wannafootball.screen.activity.BaseActivity;
-import com.example.parkminhyun.wannafootball.screen.fragment.HomeFragment;
 
 import butterknife.BindView;
 import butterknife.BindViews;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements MainPage.View {
-
 
     @BindViews({R.id.home_button, R.id.home_search_match_button, R.id.home_enroll_match_button, R.id.home_search_team_button, R.id.home_my_info_button})
     TextView[] mainBottomMenuTextViews;
@@ -33,15 +29,12 @@ public class MainActivity extends BaseActivity implements MainPage.View {
 
     @Override
     protected void initView() {
-        initFragment();
     }
 
     @Override
-    protected void initPresenter() {}
-
-    private void initFragment() {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.mainFragmentContainer, new HomeFragment()).commit();
+    protected void initPresenter() {
+        mainPresenter.setSupportFragmentManager(getSupportFragmentManager());
+        mainPresenter.initFragment();
     }
 
     @OnClick({R.id.layout_home, R.id.layout_search_match, R.id.layout_enroll_match, R.id.layout_search_team, R.id.layout_my_info})
@@ -71,21 +64,12 @@ public class MainActivity extends BaseActivity implements MainPage.View {
         }
     }
 
-    private void replaceFragment(Fragment fragment) {
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.mainFragmentContainer, fragment).commit();
-    }
-
     @Override
     public void updateBottomMenuButton(MainBottomMenu selectedMenu) {
         for (TextView view : mainBottomMenuTextViews) {
             boolean isSelected = view.getId() == selectedMenu.getLayoutId();
             view.setSelected(isSelected);
         }
-    }
-
-    @Override
-    public void updateFragment(String name) {
     }
 
     @Override

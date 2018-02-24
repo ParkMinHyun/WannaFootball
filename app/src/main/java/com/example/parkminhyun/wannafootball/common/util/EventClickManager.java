@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 /**
- * @author hykim
- *
+ * Created by ParkMinHyun on 2018-02-15.
  */
+
 public class EventClickManager {
 	private static final int DEFAULT_CLICKABLE_TIME_MILLIS = 500;
 	private static final int CACHE_SIZE = 1000;

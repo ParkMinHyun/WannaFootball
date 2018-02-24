@@ -1,7 +1,17 @@
 package com.example.parkminhyun.wannafootball.common.enums;
 
 import android.support.annotation.IdRes;
+import android.support.v4.app.Fragment;
+
 import com.example.parkminhyun.wannafootball.R;
+import com.example.parkminhyun.wannafootball.screen.fragment.EnrollMatchingFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.MyInfoFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.SearchMatchingFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.SearchTeamFragment;
+
+/**
+ * Created by ParkMinHyun on 2018-02-15.
+ */
 
 public enum MainBottomMenu {
 
@@ -17,15 +27,18 @@ public enum MainBottomMenu {
         this.layoutId = layoutId;
     }
 
-    public static MainBottomMenu findBy(String tag) {
-        try {
-            return MainBottomMenu.valueOf(tag);
-        } catch (Exception e) {
-            return HOME;
-        }
-    }
-
     public int getLayoutId() {
         return layoutId;
+    }
+
+    public static Fragment getFragment(String selectedMenuName){
+        if(selectedMenuName.equals(SEARCH_MATCH.name()))
+            return new SearchMatchingFragment();
+        else if(selectedMenuName.equals(ENROLL_MATCH.name()))
+            return new EnrollMatchingFragment();
+        else if(selectedMenuName.equals(SEARCH_TEAM.name()))
+            return new SearchTeamFragment();
+        else
+            return new MyInfoFragment();
     }
 }
