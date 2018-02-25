@@ -21,6 +21,8 @@ public class LoginHelper {
     private static UserLoginModelProvider userLoginModelProvider;
     private static OAuthLogin mOAuthLoginModule;
 
+    private NaverRequestAPITask naverRequestAPITask;
+
     // API 인스턴스를 초기화
     public static void initNaverAuthInstance(Context context) {
         mOAuthLoginModule = OAuthLogin.getInstance();
@@ -58,8 +60,13 @@ public class LoginHelper {
         return mOAuthLoginModule.getAccessToken(context);
     }
 
-    public static String NaverRequestApi(Context context, String accessToken) {
+    public static String naverRequestApi(Context context, String accessToken) {
         return mOAuthLoginModule.requestApi(context, accessToken, NAVER_USER_URL);
     }
 
+    public static void naverUserInfo(Context context)
+    {
+        NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(getAccessToken(context));
+        naverRequestAPITask.execute();
+    }
 }

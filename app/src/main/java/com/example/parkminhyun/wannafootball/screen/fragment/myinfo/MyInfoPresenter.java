@@ -23,6 +23,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     public void initPresenter(Context context) {
         this.context = context;
         LoginHelper.initNaverAuthInstance(context);
+        LoginHelper.naverUserInfo(context);
         myInfoView.showLayout(LoginHelper.isLoggedIn());
     }
 
@@ -30,7 +31,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     public void logoutButtonClick() {
         new Thread(() -> {
             if (LoginHelper.naverLogout(context))
-                myInfoView.startLoginActivity();
+                myInfoView.loggedOutView();
             else
                 Toast.makeText(MainApplication.getInstance(),"로그아웃에 실패했습니다.",Toast.LENGTH_SHORT).show();
         }).start();

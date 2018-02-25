@@ -45,15 +45,13 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
             if (success) {
                 String accessToken = LoginHelper.getAccessToken(context);
                 setUserInfo(accessToken);
-
-            } else {
             }
         }
     };
 
     private void setUserInfo(String accessToken) {
         new Thread(() -> {
-            String response = LoginHelper.NaverRequestApi(context, accessToken);
+            String response = LoginHelper.naverRequestApi(context, accessToken);
             try {
                 JSONObject jsonObject = new JSONObject(response);
                 String userID = jsonObject.getJSONObject("response").getString("id");

@@ -11,7 +11,7 @@ public interface MyInfoInterface {
     interface View {
         void showLayout(Boolean userLoginStatus);
 
-        void startLoginActivity();
+        void loggedOutView();
     }
 
     interface Presenter {
