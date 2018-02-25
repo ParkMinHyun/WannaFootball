@@ -10,6 +10,7 @@ import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
 import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.screen.activity.login.LoginActivity;
+import com.squareup.picasso.Picasso;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -59,7 +60,11 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
         if(userVO == null) {
             return;
         }
+
         myNameView.setText(userVO.getUserName());
+        Picasso.with(getContext())
+                .load(userVO.getUserProfileURL())
+                .into(myPhotoView);
     }
 
     @OnClick({R.id.reviseMyInfoButton, R.id.myPhotoView, R.id.myNameView,
