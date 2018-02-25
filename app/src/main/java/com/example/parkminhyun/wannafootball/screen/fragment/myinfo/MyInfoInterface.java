@@ -11,11 +11,13 @@ import com.example.parkminhyun.wannafootball.data.UserVO;
 public interface MyInfoInterface {
 
     interface View {
+        void initView(UserVO userVO);
+
         void showLayout(Boolean userLoginStatus);
 
         void loggedOutView();
 
-        void initView(UserVO userVO);
+        void showToast(int text);
     }
 
     interface Presenter {

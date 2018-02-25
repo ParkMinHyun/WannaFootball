@@ -1,9 +1,9 @@
 package com.example.parkminhyun.wannafootball.screen.fragment.myinfo;
 
 import android.content.Context;
-import android.widget.Toast;
+import android.os.Handler;
 
-import com.example.parkminhyun.wannafootball.MainApplication;
+import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.login.LoginHelper;
 
 /**
@@ -22,19 +22,29 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     @Override
     public void initPresenter(Context context) {
         this.context = context;
-        LoginHelper.initNaverAuthInstance(context);
-        myInfoView.initView(LoginHelper.naverUserInfo(context));
-        myInfoView.showLayout(LoginHelper.isLoggedIn());
+        initLoginView();
+    }
+
+    private void initLoginView() {
+        if (LoginHelper.isLoggedIn()) {
+            myInfoView.initView(LoginHelper.naverUserInfo(context));
+            myInfoView.showLayout(true);
+        } else {
+            myInfoView.showLayout(false);
+        }
     }
 
     @Override
     public void logoutButtonClick() {
         new Thread(() -> {
-            if (LoginHelper.naverLogout(context))
-                myInfoView.loggedOutView();
-            else
-                Toast.makeText(MainApplication.getInstance(),"로그아웃에 실패했습니다.",Toast.LENGTH_SHORT).show();
+            Boolean isSucceeded = LoginHelper.naverLogout(context);
+            new Handler().post(() -> {
+                if (isSucceeded) {
+                    myInfoView.loggedOutView();
+                } else {
+                    myInfoView.showToast(R.string.logout_fail_message);
+                }
+            });
         }).start();
     }
-
 }

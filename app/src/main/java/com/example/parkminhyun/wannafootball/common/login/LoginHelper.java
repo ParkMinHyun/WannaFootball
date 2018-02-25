@@ -1,6 +1,7 @@
 package com.example.parkminhyun.wannafootball.common.login;
 
 import android.content.Context;
+import android.os.AsyncTask;
 
 import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
@@ -24,8 +25,6 @@ public class LoginHelper {
     private static UserLoginModelProvider userLoginModelProvider;
     private static OAuthLogin mOAuthLoginModule;
 
-    private NaverRequestAPITask naverRequestAPITask;
-
     // API 인스턴스를 초기화
     public static void initNaverAuthInstance(Context context) {
         mOAuthLoginModule = OAuthLogin.getInstance();
@@ -43,6 +42,7 @@ public class LoginHelper {
     }
 
     public static boolean naverLogout(Context context) {
+        initNaverAuthInstance(context);
         if (mOAuthLoginModule.logoutAndDeleteToken(context)) {
             updateUserLogin(NOT_INPUTTED_USER_ID, false);
             return true;
@@ -67,12 +67,16 @@ public class LoginHelper {
         return mOAuthLoginModule.requestApi(context, accessToken, NAVER_USER_URL);
     }
 
-    public static UserVO naverUserInfo(Context context)
-    {
+    public static UserVO naverUserInfo(Context context) {
         UserVO myInfoVO = null;
         try {
             NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(getAccessToken(context));
             myInfoVO = naverRequestAPITask.execute().get();
+
+            // AsyncTask 종료시켜 주기
+            if (naverRequestAPITask.getStatus() == AsyncTask.Status.RUNNING) {
+                naverRequestAPITask.cancel(true);
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

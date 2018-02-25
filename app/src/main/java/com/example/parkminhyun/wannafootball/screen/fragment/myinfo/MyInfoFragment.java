@@ -56,6 +56,9 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
 
     @Override
     public void initView(UserVO userVO) {
+        if(userVO == null) {
+            return;
+        }
         myNameView.setText(userVO.getUserName());
     }
 
@@ -107,6 +110,11 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
     @Override
     public void loggedOutView() {
         showLayout(false);
+    }
+
+    @Override
+    public void showToast(int text) {
+        showToastText(getResources().getString(text));
     }
 
     @Override

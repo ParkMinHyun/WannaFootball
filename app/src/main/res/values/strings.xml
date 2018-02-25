@@ -37,4 +37,7 @@
     <string name="profile_player_age_temp">27</string>
     <string name="profile_player_team_name_temp">FC 바르셀로나</string>
 
+    <!-- login -->
+    <string name="logout_fail_message">로그아웃을 실패했습니다.</string>
+
 </resources>

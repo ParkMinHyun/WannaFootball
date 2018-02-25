@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.parkminhyun.wannafootball.common.enums.AnimationDirection;
 import com.example.parkminhyun.wannafootball.common.util.ScreenAnimationUtils;
@@ -87,6 +88,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void startActivityThenKill(Class<?> cls, Bundle bundle) {
         startActivity(cls, bundle);
         this.finish();
+    }
+
+    protected void showToastText(String text){
+        Toast.makeText(getApplicationContext(),text,Toast.LENGTH_SHORT).show();
     }
 
     /**
