@@ -8,7 +8,15 @@ public class UserVO {
 
     private String userID;
     private String userName;
+    private String userAge;
     private String userProfileURL;
+
+    public UserVO(String userID, String userName, String userAge, String userProfileURL) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userAge = userAge;
+        this.userProfileURL = userProfileURL;
+    }
 
     public String getUserID() {
         return userID;
@@ -24,6 +32,14 @@ public class UserVO {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getUserAge() {
+        return userAge;
+    }
+
+    public void setUserAge(String userAge) {
+        this.userAge = userAge;
     }
 
     public String getUserProfileURL() {

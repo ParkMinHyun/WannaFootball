@@ -36,9 +36,10 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
 
     @Override
     public void logoutButtonClick() {
+        Handler handler = new Handler();
         new Thread(() -> {
             Boolean isSucceeded = LoginHelper.naverLogout(context);
-            new Handler().post(() -> {
+            handler.post(() -> {
                 if (isSucceeded) {
                     myInfoView.loggedOutView();
                 } else {

@@ -59,10 +59,12 @@ public class NaverRequestAPITask extends AsyncTask<Void, Void, UserVO> {
             JSONObject object = new JSONObject(response.toString());
             JSONObject innerJson = new JSONObject(object.get("response").toString());
 
-            UserVO myInfoVO = new UserVO();
-            myInfoVO.setUserID(innerJson.getString("id"));
-            myInfoVO.setUserName(innerJson.getString("name"));
-            myInfoVO.setUserProfileURL(innerJson.getString("profile_image"));
+            UserVO myInfoVO = new UserVO(
+                    innerJson.getString("id"),
+                    innerJson.getString("name"),
+                    innerJson.getString("age"),
+                    innerJson.getString("profile_image"));
+
             return myInfoVO;
         } catch (Exception e) {
             e.printStackTrace();

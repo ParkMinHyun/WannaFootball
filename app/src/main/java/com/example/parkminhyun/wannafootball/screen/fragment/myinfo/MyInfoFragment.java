@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
+import com.example.parkminhyun.wannafootball.common.customview.CircleTransform;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
 import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.screen.activity.login.LoginActivity;
@@ -62,8 +63,10 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
         }
 
         myNameView.setText(userVO.getUserName());
+        myAgeView.setText(userVO.getUserAge());
         Picasso.with(getContext())
                 .load(userVO.getUserProfileURL())
+                .transform(new CircleTransform())
                 .into(myPhotoView);
     }
 
