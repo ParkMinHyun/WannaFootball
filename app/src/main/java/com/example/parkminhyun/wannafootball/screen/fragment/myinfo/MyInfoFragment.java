@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
 import com.example.parkminhyun.wannafootball.common.util.EventClickManager;
+import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.screen.activity.login.LoginActivity;
 
 import butterknife.BindView;
@@ -49,8 +50,13 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
     private MyInfoPresenter myInfoPresenter;
 
     @Override
-    protected void initView() {
+    protected void init() {
         myInfoPresenter.initPresenter(getActivity());
+    }
+
+    @Override
+    public void initView(UserVO userVO) {
+        myNameView.setText(userVO.getUserName());
     }
 
     @OnClick({R.id.reviseMyInfoButton, R.id.myPhotoView, R.id.myNameView,

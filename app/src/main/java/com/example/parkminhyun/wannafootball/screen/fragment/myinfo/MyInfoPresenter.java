@@ -23,7 +23,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     public void initPresenter(Context context) {
         this.context = context;
         LoginHelper.initNaverAuthInstance(context);
-        LoginHelper.naverUserInfo(context);
+        myInfoView.initView(LoginHelper.naverUserInfo(context));
         myInfoView.showLayout(LoginHelper.isLoggedIn());
     }
 

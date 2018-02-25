@@ -10,7 +10,7 @@ import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
 public class HomeFragment extends BaseFragment {
 
     @Override
-    protected void initView() {}
+    protected void init() {}
 
 
     @Override

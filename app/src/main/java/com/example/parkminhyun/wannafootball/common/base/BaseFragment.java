@@ -31,10 +31,10 @@ public abstract class BaseFragment extends Fragment {
 
     private void initFragment(View view){
         ButterKnife.bind(this,view);
-        initView();
+        init();
     }
 
-    protected abstract void initView();
+    protected abstract void init();
 
     protected abstract void createPresenter();
 

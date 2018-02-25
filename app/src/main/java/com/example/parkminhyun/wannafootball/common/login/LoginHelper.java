@@ -2,8 +2,11 @@ package com.example.parkminhyun.wannafootball.common.login;
 
 import android.content.Context;
 
+import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
+
+import java.util.concurrent.ExecutionException;
 
 import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTTED_USER_ID;
 
@@ -64,9 +67,17 @@ public class LoginHelper {
         return mOAuthLoginModule.requestApi(context, accessToken, NAVER_USER_URL);
     }
 
-    public static void naverUserInfo(Context context)
+    public static UserVO naverUserInfo(Context context)
     {
-        NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(getAccessToken(context));
-        naverRequestAPITask.execute();
+        UserVO myInfoVO = null;
+        try {
+            NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(getAccessToken(context));
+            myInfoVO = naverRequestAPITask.execute().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return myInfoVO;
     }
 }
