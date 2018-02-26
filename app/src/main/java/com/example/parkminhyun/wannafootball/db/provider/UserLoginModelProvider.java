@@ -24,12 +24,6 @@ public class UserLoginModelProvider {
 
     @NonNull
     @CheckResult
-    public Boolean getUserLoginScreenSkipStatus() {
-        return userLoginRealmDAO.getUserLoginScreenSkipStatus();
-    }
-
-    @NonNull
-    @CheckResult
     public Boolean getUserLoggedIn() {
         return userLoginRealmDAO.getUserLoginStatus();
     }

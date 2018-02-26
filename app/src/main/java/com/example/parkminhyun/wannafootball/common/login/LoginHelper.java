@@ -31,11 +31,6 @@ public class LoginHelper {
         return userLoginModelProvider.getUserLoggedIn();
     }
 
-    public static boolean isLoginScreenSkipped() {
-        userLoginModelProvider = UserLoginModelProvider.getInstance();
-        return userLoginModelProvider.getUserLoginScreenSkipStatus();
-    }
-
     public static boolean naverLogout(Context context) {
         initNaverAuthInstance(context);
         if (mOAuthLoginModule.logoutAndDeleteToken(context)) {

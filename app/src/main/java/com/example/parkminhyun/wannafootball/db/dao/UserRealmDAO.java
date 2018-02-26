@@ -12,21 +12,6 @@ import static com.example.parkminhyun.wannafootball.common.constant.UserConstant
 
 public class UserRealmDAO extends BaseRealmDAO {
 
-    public Boolean getUserLoginScreenSkipStatus() {
-
-        return query(realm -> {
-
-            UserRO userLoginRO = realm.where(UserRO.class).findFirst();
-            if (userLoginRO == null)
-                return false;
-
-            else if (userLoginRO.isLoggedIn())
-                return true;
-
-            return false;
-        });
-    }
-
     public Boolean getUserLoginStatus() {
 
         return query(realm -> {

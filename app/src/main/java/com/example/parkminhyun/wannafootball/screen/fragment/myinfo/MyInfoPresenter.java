@@ -17,6 +17,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     private MyInfoInterface.View myInfoView;
     private UserLoginModelProvider userLoginModelProvider;
 
+    private UserVO userVO;
     public MyInfoPresenter(MyInfoInterface.View myInfoView) {
         this.myInfoView = myInfoView;
     }
@@ -33,7 +34,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
 
     private void initLoginView() {
         if (LoginHelper.isLoggedIn()) {
-            UserVO userVO = userLoginModelProvider.getUserVO();
+            userVO = userLoginModelProvider.getUserVO();
             myInfoView.initView(userVO);
             myInfoView.showLayout(true);
         } else {
@@ -48,6 +49,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
             Boolean isSucceeded = LoginHelper.naverLogout(App.getInstance());
             handler.post(() -> {
                 if (isSucceeded) {
+                    userLoginModelProvider.updateUserLogin(userVO.getUserID(), false);
                     myInfoView.loggedOutView();
                 } else {
                     myInfoView.showToast(R.string.logout_fail_message);
