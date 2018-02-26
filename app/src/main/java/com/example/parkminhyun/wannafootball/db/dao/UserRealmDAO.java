@@ -4,8 +4,6 @@ package com.example.parkminhyun.wannafootball.db.dao;
 import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.db.ro.UserRO;
 
-import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTTED_USER_ID;
-
 /**
  * Created by ParkMinHyun on 2018-02-18.
  */
@@ -20,10 +18,7 @@ public class UserRealmDAO extends BaseRealmDAO {
             if (userLoginRO == null)
                 return false;
 
-            else if (userLoginRO.getUserID().equals(NOT_INPUTTED_USER_ID))
-                return false;
-
-            return true;
+            return userLoginRO.isLoggedIn();
         });
     }
 

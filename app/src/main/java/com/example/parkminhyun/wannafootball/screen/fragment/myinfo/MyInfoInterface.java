@@ -15,6 +15,8 @@ public interface MyInfoInterface {
 
         void loggedOutView();
 
+        void startLoginActivity();
+
         void showToast(int text);
     }
 
@@ -22,6 +24,8 @@ public interface MyInfoInterface {
         void initPresenter();
 
         void logoutButtonClick();
+
+        void startLoginActivity();
     }
 
 }

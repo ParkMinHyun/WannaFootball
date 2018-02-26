@@ -58,9 +58,9 @@ public class UserRO extends RealmObject{
     }
 
     public void setUserVO(UserVO userVO) {
-        this.userID = userVO.getUserID();
-        this.userName = userVO.getUserName();
-        this.userAge = userVO.getUserAge();
-        this.userProfileURL = userVO.getUserProfileURL();
+        setUserID(userVO.getUserID());
+        setUserName(userVO.getUserName());
+        setUserAge(userVO.getUserAge());
+        setUserProfileURL(userVO.getUserProfileURL());
     }
 }

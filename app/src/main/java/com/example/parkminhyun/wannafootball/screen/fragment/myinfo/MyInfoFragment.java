@@ -97,7 +97,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
                 myInfoPresenter.logoutButtonClick();
                 break;
             case R.id.moveLoginPageButton:
-                startActivity(LoginActivity.class);
+                myInfoPresenter.startLoginActivity();
                 break;
             default:
                 break;
@@ -118,6 +118,11 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
     @Override
     public void loggedOutView() {
         showLayout(false);
+    }
+
+    @Override
+    public void startLoginActivity() {
+        startActivity(LoginActivity.class);
     }
 
     @Override

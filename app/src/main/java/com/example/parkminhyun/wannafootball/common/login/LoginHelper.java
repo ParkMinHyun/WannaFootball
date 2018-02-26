@@ -2,6 +2,7 @@ package com.example.parkminhyun.wannafootball.common.login;
 
 import android.content.Context;
 
+import com.example.parkminhyun.wannafootball.db.provider.ScreenSkipModelProvider;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
 
@@ -18,6 +19,8 @@ public class LoginHelper {
     private static final String NAVER_CLIENT_NAME = "DoYouWantToSoccer?";
 
     private static UserLoginModelProvider userLoginModelProvider;
+    private static ScreenSkipModelProvider screenSkipModelProvider;
+
     private static OAuthLogin mOAuthLoginModule;
 
     // API 인스턴스를 초기화
@@ -26,9 +29,14 @@ public class LoginHelper {
         mOAuthLoginModule.init(context, NAVER_CLIENT_ID, NAVER_CLIENT_SECRET, NAVER_CLIENT_NAME);
     }
 
-    public static boolean isLoggedIn() {
-        userLoginModelProvider = UserLoginModelProvider.getInstance();
+    public static boolean isUserLoggedIn() {
+        userLoginModelProvider = new UserLoginModelProvider();
         return userLoginModelProvider.getUserLoggedIn();
+    }
+
+    public static boolean isLoginScreenSkipStatus() {
+        screenSkipModelProvider = new ScreenSkipModelProvider();
+        return screenSkipModelProvider.getLoginScreenSkipStatus();
     }
 
     public static boolean naverLogout(Context context) {
@@ -41,8 +49,13 @@ public class LoginHelper {
     }
 
     public static void updateUserLogin(String userID, boolean loginStatus) {
-        userLoginModelProvider = UserLoginModelProvider.getInstance();
+        userLoginModelProvider = new UserLoginModelProvider();
         userLoginModelProvider.updateUserLogin(userID, loginStatus);
+    }
+
+    public static void updatedLoggedInScreenSkip(boolean loggedInScreenSkipStatus) {
+        screenSkipModelProvider = new ScreenSkipModelProvider();
+        screenSkipModelProvider.updateLoginScreenSkipStatus(loggedInScreenSkipStatus);
     }
 
     public static OAuthLogin getOAuthLoginModule() {

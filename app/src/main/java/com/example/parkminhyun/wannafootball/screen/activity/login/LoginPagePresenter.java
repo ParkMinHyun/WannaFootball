@@ -36,7 +36,7 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
     public void initNaverLogin() {
         // 이미 로그인 되어 있거나, 다음에 보기 클릭했을 경우 Skip 하기
         // TODO : 나중에 Splash 만들면 Splash 화면에서 분기처리 해주기
-        if (LoginHelper.isLoginScreenSkipped()) {
+        if (LoginHelper.isLoginScreenSkipStatus()) {
             loginView.startMainActivity();
         } else {
             loginView.setOAuthLoginHandler(mOAuthLoginHandler);
@@ -69,6 +69,9 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
                 if (naverRequestAPITask.getStatus() == AsyncTask.Status.RUNNING) {
                     naverRequestAPITask.cancel(true);
                 }
+
+                LoginHelper.updateUserLogin(myInfoVO.getUserID(),true);
+                LoginHelper.updatedLoggedInScreenSkip(true);
                 loginView.startMainActivity();
 
             } catch (InterruptedException e) {
@@ -86,8 +89,8 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
 
     @Override
     public void nextLoginButtonClick() {
-        LoginHelper.updateUserLogin(NOT_INPUTTED_USER_ID, true);
+        LoginHelper.updatedLoggedInScreenSkip(true);
+        LoginHelper.updateUserLogin(NOT_INPUTTED_USER_ID, false);
         loginView.startMainActivity();
     }
-
 }

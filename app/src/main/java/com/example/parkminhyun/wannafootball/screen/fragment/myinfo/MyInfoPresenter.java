@@ -15,6 +15,7 @@ import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 public class MyInfoPresenter implements MyInfoInterface.Presenter {
 
     private MyInfoInterface.View myInfoView;
+
     private UserLoginModelProvider userLoginModelProvider;
 
     private UserVO userVO;
@@ -29,11 +30,11 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     }
 
     private void initUserData() {
-        userLoginModelProvider = UserLoginModelProvider.getInstance();
+        userLoginModelProvider = new UserLoginModelProvider();
     }
 
     private void initLoginView() {
-        if (LoginHelper.isLoggedIn()) {
+        if (LoginHelper.isUserLoggedIn()) {
             userVO = userLoginModelProvider.getUserVO();
             myInfoView.initView(userVO);
             myInfoView.showLayout(true);
@@ -49,12 +50,19 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
             Boolean isSucceeded = LoginHelper.naverLogout(App.getInstance());
             handler.post(() -> {
                 if (isSucceeded) {
-                    userLoginModelProvider.updateUserLogin(userVO.getUserID(), false);
+                    LoginHelper.updatedLoggedInScreenSkip(false);
+                    LoginHelper.updateUserLogin(userVO.getUserID(), false);
                     myInfoView.loggedOutView();
                 } else {
                     myInfoView.showToast(R.string.logout_fail_message);
                 }
             });
         }).start();
+    }
+
+    @Override
+    public void startLoginActivity() {
+        LoginHelper.updatedLoggedInScreenSkip(false);
+        myInfoView.startLoginActivity();
     }
 }
