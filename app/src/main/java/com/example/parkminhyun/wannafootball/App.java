@@ -3,6 +3,7 @@ package com.example.parkminhyun.wannafootball;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.parkminhyun.wannafootball.common.login.LoginHelper;
 import com.google.firebase.database.FirebaseDatabase;
 
 import io.realm.Realm;
@@ -12,9 +13,9 @@ import io.realm.RealmConfiguration;
  * Created by ParkMinHyun on 2018-02-15.
  */
 
-public class MainApplication extends Application {
+public class App extends Application {
 
-    private static MainApplication instance;
+    private static App instance;
 
     private static FirebaseDatabase firebaseDatabase;
     private static final String APP_NAME = "WannaFootball";
@@ -33,8 +34,13 @@ public class MainApplication extends Application {
     }
 
     private void initLibraries() {
+        initNaverLogin();
         initRealm();
         initFireBase();
+    }
+
+    private void initNaverLogin() {
+        LoginHelper.initNaverAuthInstance(instance);
     }
 
     private void initRealm() {
@@ -50,10 +56,15 @@ public class MainApplication extends Application {
         firebaseDatabase = FirebaseDatabase.getInstance();
     }
 
-    public static MainApplication getInstance() {
+    public static App getInstance() {
         return instance;
     }
 
-    public static Realm getRealmInstance(){ return Realm.getDefaultInstance(); }
-    public static FirebaseDatabase getFirebaseDatabase() { return firebaseDatabase; }
+    public static Realm getRealmInstance() {
+        return Realm.getDefaultInstance();
+    }
+
+    public static FirebaseDatabase getFirebaseDatabase() {
+        return firebaseDatabase;
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.parkminhyun.wannafootball.db.dao;
 
-import com.example.parkminhyun.wannafootball.MainApplication;
+import com.example.parkminhyun.wannafootball.App;
 import com.example.parkminhyun.wannafootball.db.core.RealmQueryTask;
 import com.example.parkminhyun.wannafootball.db.core.RealmTransactionTask;
 
@@ -13,7 +13,7 @@ import io.realm.Realm;
 public class BaseRealmDAO {
 
     protected <T> T query(RealmQueryTask<T> task) {
-        Realm realm = MainApplication.getRealmInstance();
+        Realm realm = App.getRealmInstance();
         T result = null;
         try {
             result = task.queryResult(realm);
@@ -24,7 +24,7 @@ public class BaseRealmDAO {
     }
 
     protected void modify(RealmTransactionTask task) {
-        Realm realm = MainApplication.getRealmInstance();
+        Realm realm = App.getRealmInstance();
         try {
             realm.beginTransaction();
             task.executeTransaction(realm);

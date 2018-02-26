@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.example.parkminhyun.wannafootball.common.base.BaseActivity;
-import com.example.parkminhyun.wannafootball.MainApplication;
+import com.example.parkminhyun.wannafootball.App;
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.customview.RangeScaleTextView;
 import com.example.parkminhyun.wannafootball.common.enums.AnimationDirection;
@@ -60,7 +60,7 @@ public class RegisterActivity extends BaseActivity implements RegisterPage.View 
     }
 
     private void initFireBaseReference() {
-        databaseUser = MainApplication.getFirebaseDatabase().getReference(USER_LOGIN);
+        databaseUser = App.getFirebaseDatabase().getReference(USER_LOGIN);
         registerPresenter.setFireBaseReference(databaseUser);
     }
 

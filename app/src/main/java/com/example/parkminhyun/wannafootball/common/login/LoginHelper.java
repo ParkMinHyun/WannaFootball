@@ -1,13 +1,9 @@
 package com.example.parkminhyun.wannafootball.common.login;
 
 import android.content.Context;
-import android.os.AsyncTask;
 
-import com.example.parkminhyun.wannafootball.data.UserVO;
 import com.example.parkminhyun.wannafootball.db.provider.UserLoginModelProvider;
 import com.nhn.android.naverlogin.OAuthLogin;
-
-import java.util.concurrent.ExecutionException;
 
 import static com.example.parkminhyun.wannafootball.common.constant.UserConstant.NOT_INPUTTED_USER_ID;
 
@@ -20,7 +16,6 @@ public class LoginHelper {
     private static final String NAVER_CLIENT_ID = "ajkQnVpM4y94tf3XjIlw";
     private static final String NAVER_CLIENT_SECRET = "TyVWYW36Mr";
     private static final String NAVER_CLIENT_NAME = "DoYouWantToSoccer?";
-    private static final String NAVER_USER_URL = "https://openapi.naver.com/v1/nid/me";
 
     private static UserLoginModelProvider userLoginModelProvider;
     private static OAuthLogin mOAuthLoginModule;
@@ -61,27 +56,5 @@ public class LoginHelper {
 
     public static String getAccessToken(Context context) {
         return mOAuthLoginModule.getAccessToken(context);
-    }
-
-    public static String naverRequestApi(Context context, String accessToken) {
-        return mOAuthLoginModule.requestApi(context, accessToken, NAVER_USER_URL);
-    }
-
-    public static UserVO naverUserInfo(Context context) {
-        UserVO myInfoVO = null;
-        try {
-            NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(getAccessToken(context));
-            myInfoVO = naverRequestAPITask.execute().get();
-
-            // AsyncTask 종료시켜 주기
-            if (naverRequestAPITask.getStatus() == AsyncTask.Status.RUNNING) {
-                naverRequestAPITask.cancel(true);
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-        return myInfoVO;
     }
 }

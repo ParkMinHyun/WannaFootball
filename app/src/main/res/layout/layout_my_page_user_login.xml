@@ -117,11 +117,11 @@
         android:layout_marginTop="15dp"
         android:gravity="center">
 
-        <ImageView
+        <com.example.parkminhyun.wannafootball.common.customview.RiceCakeView
             android:id="@+id/logoutButton"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_margin="8dp"
-            android:src="@drawable/background_team_emblem"/>
+            android:src="@drawable/logout_button"/>
     </RelativeLayout>
 </LinearLayout>

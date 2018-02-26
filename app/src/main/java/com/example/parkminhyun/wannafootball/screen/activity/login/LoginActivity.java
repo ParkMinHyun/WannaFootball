@@ -29,7 +29,8 @@ public class LoginActivity extends BaseActivity implements LoginInterface.View {
 
     @Override
     protected void initPresenter() {
-        loginPresenter.initNaverLogin(this);
+        loginPresenter.initUserData();
+        loginPresenter.initNaverLogin();
     }
 
     @OnClick({R.id.naverLoginButton, R.id.nextLoginButton})
@@ -47,7 +48,6 @@ public class LoginActivity extends BaseActivity implements LoginInterface.View {
     public void setOAuthLoginHandler(OAuthLoginHandler mOAuthLoginHandler) {
         naverLoginButton.setOAuthLoginHandler(mOAuthLoginHandler);
     }
-
 
     @Override
     public void startMainActivity() {

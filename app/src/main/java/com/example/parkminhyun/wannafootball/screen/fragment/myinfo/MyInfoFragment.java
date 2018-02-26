@@ -53,7 +53,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
 
     @Override
     protected void init() {
-        myInfoPresenter.initPresenter(getActivity());
+        myInfoPresenter.initPresenter();
     }
 
     @Override

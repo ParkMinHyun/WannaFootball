@@ -1,7 +1,5 @@
 package com.example.parkminhyun.wannafootball.screen.fragment.myinfo;
 
-import android.content.Context;
-
 import com.example.parkminhyun.wannafootball.data.UserVO;
 
 /**
@@ -21,7 +19,7 @@ public interface MyInfoInterface {
     }
 
     interface Presenter {
-        void initPresenter(Context context);
+        void initPresenter();
 
         void logoutButtonClick();
     }

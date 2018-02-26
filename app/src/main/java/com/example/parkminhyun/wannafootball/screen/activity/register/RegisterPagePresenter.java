@@ -5,7 +5,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.parkminhyun.wannafootball.MainApplication;
+import com.example.parkminhyun.wannafootball.App;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -103,12 +103,12 @@ public class RegisterPagePresenter implements RegisterPage.Presenter {
     public void onClickSignUpButton() {
 
         if (!isEmailDupChecked) {
-            Toast.makeText(MainApplication.getInstance(), "Email 중복검사하세욧", Toast.LENGTH_SHORT).show();
+            Toast.makeText(App.getInstance(), "Email 중복검사하세욧", Toast.LENGTH_SHORT).show();
             return;
         }
 
         if (!isPasswordChecked) {
-            Toast.makeText(MainApplication.getInstance(), "비밀번호 체크하세요", Toast.LENGTH_SHORT).show();
+            Toast.makeText(App.getInstance(), "비밀번호 체크하세요", Toast.LENGTH_SHORT).show();
             return;
         }
 
