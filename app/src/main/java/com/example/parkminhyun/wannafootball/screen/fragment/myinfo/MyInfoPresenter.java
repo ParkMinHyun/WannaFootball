@@ -50,6 +50,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
             Boolean isSucceeded = LoginHelper.naverLogout(App.getInstance());
             handler.post(() -> {
                 if (isSucceeded) {
+                    // TODO: Logout 상황에서도 LoginScreen Skip 해줘야 하는지 고민해보기.
                     LoginHelper.updatedLoggedInScreenSkip(false);
                     LoginHelper.updateUserLogin(userVO.getUserID(), false);
                     myInfoView.loggedOutView();

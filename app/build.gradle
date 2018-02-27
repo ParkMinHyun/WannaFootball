@@ -59,8 +59,9 @@ dependencies {
     // firebase library
     implementation "com.google.firebase:firebase-database:$firebase_version"
 
-    // naver login library
+    // login library
     implementation 'com.naver.nid:naveridlogin-android-sdk:4.2.0'
+    implementation group: 'com.kakao.sdk', name: 'usermgmt', version: '1.1.7'
 
     // picaso library
     implementation 'com.squareup.picasso:picasso:2.5.2'

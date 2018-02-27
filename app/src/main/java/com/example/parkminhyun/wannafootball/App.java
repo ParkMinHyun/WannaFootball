@@ -1,5 +1,6 @@
 package com.example.parkminhyun.wannafootball;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 
@@ -60,6 +61,10 @@ public class App extends Application {
         return instance;
     }
 
+    public static Activity getCurrentActivity() {
+        return getCurrentActivity();
+    }
+
     public static Realm getRealmInstance() {
         return Realm.getDefaultInstance();
     }
@@ -67,4 +72,5 @@ public class App extends Application {
     public static FirebaseDatabase getFirebaseDatabase() {
         return firebaseDatabase;
     }
+
 }

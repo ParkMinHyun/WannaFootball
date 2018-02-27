@@ -38,4 +38,8 @@
             android:windowSoftInputMode="adjustNothing" />
     </application>
 
+    <meta-data
+        android:name="com.kakao.sdk.AppKey"
+        android:value="58d013400400c06a384b7acd16d4bc8b" />
+
 </manifest>

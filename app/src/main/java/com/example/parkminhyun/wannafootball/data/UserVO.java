@@ -11,6 +11,9 @@ public class UserVO {
     private String userAge;
     private String userProfileURL;
 
+
+    public UserVO() {}
+
     public UserVO(String userID, String userName, String userAge, String userProfileURL) {
         this.userID = userID;
         this.userName = userName;
