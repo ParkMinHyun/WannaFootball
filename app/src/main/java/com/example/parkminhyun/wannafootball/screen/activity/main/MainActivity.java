@@ -73,7 +73,7 @@ public class MainActivity extends BaseActivity implements MainInterface.View {
     @Override
     public void updateBottomMenuButton(MainBottomMenu selectedMenu) {
         for (TextView view : mainBottomMenuTextViews) {
-            boolean isSelected = view.getId() == selectedMenu.getLayoutId();
+            boolean isSelected = (view.getId() == selectedMenu.getLayoutId());
             view.setSelected(isSelected);
         }
     }
