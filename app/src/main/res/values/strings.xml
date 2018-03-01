@@ -40,4 +40,7 @@
     <!-- login -->
     <string name="logout_fail_message">로그아웃을 실패했습니다.</string>
 
+    <!-- search Team -->
+    <string name="type_search_team_text">검색 유형</string>
+
 </resources>
