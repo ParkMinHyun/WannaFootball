@@ -70,6 +70,7 @@ public class UserRO extends RealmObject{
         setUserID(userVO.getUserID());
         setUserName(userVO.getUserName());
         setUserAge(userVO.getUserAge());
+        setUserPhoneNumber(userVO.getUserPhoneNumber());
         setUserProfileURL(userVO.getUserProfileURL());
     }
 }
