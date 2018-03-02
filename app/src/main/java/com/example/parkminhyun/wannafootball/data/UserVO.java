@@ -9,6 +9,7 @@ public class UserVO {
     private String userID;
     private String userName;
     private String userAge;
+    private String userPhoneNumber;
     private String userProfileURL;
 
 
@@ -18,6 +19,15 @@ public class UserVO {
         this.userID = userID;
         this.userName = userName;
         this.userAge = userAge;
+        this.userProfileURL = userProfileURL;
+    }
+
+    public UserVO(String userID, String userName, String userAge,
+                  String userPhoneNumber, String userProfileURL) {
+        this.userID = userID;
+        this.userName = userName;
+        this.userAge = userAge;
+        this.userPhoneNumber = userPhoneNumber;
         this.userProfileURL = userProfileURL;
     }
 
@@ -43,6 +53,14 @@ public class UserVO {
 
     public void setUserAge(String userAge) {
         this.userAge = userAge;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
     }
 
     public String getUserProfileURL() {

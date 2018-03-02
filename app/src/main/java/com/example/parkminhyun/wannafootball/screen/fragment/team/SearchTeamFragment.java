@@ -1,5 +1,6 @@
 package com.example.parkminhyun.wannafootball.screen.fragment.team;
 
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.EditText;
 
@@ -17,7 +18,6 @@ import butterknife.OnClick;
 
 public class SearchTeamFragment extends BaseFragment implements SearchTeamInterface.View {
 
-
     @BindView(R.id.locationTypeCheckView)
     View locationTypeCheckView;
 
@@ -33,17 +33,31 @@ public class SearchTeamFragment extends BaseFragment implements SearchTeamInterf
     @BindView(R.id.teamSearchText)
     EditText teamSearchText;
 
+    @BindView(R.id.teamRecyclerView)
+    RecyclerView teamRecyclerView;
+
     private SearchTeamPresenter searchTeamPresenter;
 
     @Override
     protected void init() {
-        searchTeamPresenter.initPresenter();
+        initView();
+        initProperty();
     }
 
-    @Override
     public void initView() {
-        locationTypeCheckBox.setChecked(true);
+        initCheckBox();
     }
+
+    private void initProperty() {
+        searchTeamPresenter.setSearchTextWatcher(teamSearchText);
+        searchTeamPresenter.setTeamRecyclerView(teamRecyclerView);
+    }
+
+    private void initCheckBox() {
+        locationTypeCheckBox.setChecked(true);
+        teamNameTypeCheckBox.setChecked(false);
+    }
+
 
     @OnClick({R.id.locationTypeCheckView, R.id.teamNameTypeCheckView})
     void onClick(View view) {

@@ -15,6 +15,7 @@ public class UserRO extends RealmObject{
     private String userID;
     private String userName;
     private String userAge;
+    private String userPhoneNumber;
     private String userProfileURL;
 
     public boolean isLoggedIn() {
@@ -47,6 +48,14 @@ public class UserRO extends RealmObject{
 
     public void setUserAge(String userAge) {
         this.userAge = userAge;
+    }
+
+    public String getUserPhoneNumber() {
+        return userPhoneNumber;
+    }
+
+    public void setUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
     }
 
     public String getUserProfileURL() {

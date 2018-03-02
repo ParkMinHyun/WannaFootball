@@ -1,7 +1,13 @@
 package com.example.parkminhyun.wannafootball.screen.activity.login;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.os.AsyncTask;
+import android.support.v4.app.ActivityCompat;
+import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import com.example.parkminhyun.wannafootball.App;
 import com.example.parkminhyun.wannafootball.common.login.LoginHelper;
@@ -51,7 +57,7 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
                 String accessToken = LoginHelper.getAccessToken(App.getInstance());
 
                 // 로그인 정보가 있다면 유저 정보 갱신 실행 X
-                if(!userLoginModelProvider.getUserLoggedIn()) {
+                if (!userLoginModelProvider.getUserLoggedIn()) {
                     setUserInfo(accessToken);
                 }
             }
@@ -64,13 +70,14 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
                 NaverRequestAPITask naverRequestAPITask = new NaverRequestAPITask(accessToken);
                 UserVO myInfoVO = naverRequestAPITask.execute().get();
 
+                setUserPhoneNumber(myInfoVO);
                 userLoginModelProvider.updateUserVO(myInfoVO);
                 // AsyncTask 종료시켜 주기
                 if (naverRequestAPITask.getStatus() == AsyncTask.Status.RUNNING) {
                     naverRequestAPITask.cancel(true);
                 }
 
-                LoginHelper.updateUserLogin(myInfoVO.getUserID(),true);
+                LoginHelper.updateUserLogin(myInfoVO.getUserID(), true);
                 LoginHelper.updatedLoggedInScreenSkip(true);
                 loginView.startMainActivity();
 
@@ -80,6 +87,22 @@ public class LoginPagePresenter implements LoginInterface.Presenter {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private void setUserPhoneNumber(UserVO myInfoVO) {
+        TelephonyManager telManager = (TelephonyManager) App.getInstance().getSystemService(Context.TELEPHONY_SERVICE);
+        try {
+            if (ActivityCompat.checkSelfPermission(App.getInstance(), Manifest.permission.READ_SMS) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(App.getInstance(), Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+
+            String phoneNum = telManager.getLine1Number();
+            phoneNum = phoneNum.replace("+82", "0");
+
+            myInfoVO.setUserPhoneNumber(phoneNum);
+            Log.i("핸드폰번호: ",phoneNum);
+        }catch(Exception e){}
     }
 
     @Override

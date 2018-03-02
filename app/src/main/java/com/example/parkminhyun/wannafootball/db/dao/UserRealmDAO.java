@@ -38,6 +38,7 @@ public class UserRealmDAO extends BaseRealmDAO {
                 userRO.getUserID(),
                 userRO.getUserName(),
                 userRO.getUserAge(),
+                userRO.getUserPhoneNumber(),
                 userRO.getUserProfileURL());
         return userVO;
     }

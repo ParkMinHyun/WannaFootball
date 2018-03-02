@@ -35,7 +35,7 @@
     <string name="profile_age">살</string>
     <string name="profile_player_team">선수 소속팀:</string>
     <string name="profile_player_age_temp">27</string>
-    <string name="profile_player_team_name_temp">FC 바르셀로나</string>
+    <string name="profile_player_team_name_temp">소속된 팀이 없습니다.</string>
 
     <!-- login -->
     <string name="logout_fail_message">로그아웃을 실패했습니다.</string>
