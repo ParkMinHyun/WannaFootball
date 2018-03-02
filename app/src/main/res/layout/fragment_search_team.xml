@@ -9,25 +9,106 @@
     <LinearLayout
         android:id="@+id/searchTeamSearchTypeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
             android:text="@string/type_search_team_text" />
-    </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+
+            <com.hanks.library.AnimateCheckBox
+                android:id="@+id/soccerTypeCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:animDuration="200"
+                app:checkedColor="@color/text_green_teal"
+                app:lineColor="#fff"
+                app:lineWidth="1.2dp"
+                app:unCheckColor="@color/black_8" />
+
+            <TextView
+                android:id="@+id/soccer_type_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/search_type_location" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="horizontal">
+
+
+            <com.hanks.library.AnimateCheckBox
+                android:id="@+id/footsalTypeCheck"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                app:animDuration="200"
+                app:checkedColor="@color/text_orange_red"
+                app:lineColor="#fff"
+                app:lineWidth="1.2dp"
+                app:unCheckColor="@color/black_8" />
+
+            <TextView
+                android:id="@+id/footsal_type_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/search_type_team_name" />
+        </LinearLayout>
+    </LinearLayout>
+ 
     <EditText
-        android:id="@+id/search"
+        android:id="@+id/teamSearchText"
         android:layout_width="match_parent"
         android:layout_height="21dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/search_bar"
         android:drawablePadding="8dp"
         android:inputType="text"
         android:maxLines="1"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp" />
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchTeamSearchTypeLayout" />
 
+    <View
+        android:id="@+id/teamSearchBaseLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:background="@color/black_9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/teamSearchText" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/teamRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/teamSearchBaseLine" />
 </android.support.constraint.ConstraintLayout>

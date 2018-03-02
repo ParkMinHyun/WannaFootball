@@ -1,21 +1,28 @@
 package com.example.parkminhyun.wannafootball.screen.fragment.team;
 
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
 import com.example.parkminhyun.wannafootball.R;
+import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
 
 /**
  * Created by ParkMinHyun on 2018-02-20.
  */
 
-public class SearchTeamFragment extends Fragment {
+public class SearchTeamFragment extends BaseFragment implements SearchTeamInterface.View {
+
+    private SearchTeamPresenter searchTeamPresenter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_search_team, container, false);
+    protected void init() {
+        searchTeamPresenter.initPresenter();
+    }
+
+    @Override
+    protected void createPresenter() {
+        searchTeamPresenter = new SearchTeamPresenter(this);
+    }
+
+    @Override
+    protected int getLayoutResId() {
+        return R.layout.fragment_search_team;
     }
 }

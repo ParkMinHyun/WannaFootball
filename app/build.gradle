@@ -55,6 +55,7 @@ dependencies {
 
     // material design library
     implementation 'com.rengwuxian.materialedittext:library:2.1.4'
+    implementation 'com.hanks.animatecheckbox:library:0.1'
 
     // firebase library
     implementation "com.google.firebase:firebase-database:$firebase_version"

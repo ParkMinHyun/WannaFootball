@@ -41,6 +41,12 @@
     <string name="logout_fail_message">로그아웃을 실패했습니다.</string>
 
     <!-- search Team -->
+    <string name="type_soccer">축구</string>
+    <string name="search_type_location">활동 지역</string>
+    <string name="search_type_team_name">팀명</string>
+
+
+    <string name="type_footsal">풋살</string>
     <string name="type_search_team_text">검색 유형</string>
 
 </resources>

@@ -10,6 +10,7 @@ public interface SearchTeamInterface {
     }
 
     interface Presenter {
+        void initPresenter();
     }
 
 }

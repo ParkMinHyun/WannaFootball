@@ -8,8 +8,12 @@ public class SearchTeamPresenter implements SearchTeamInterface.Presenter {
 
     private SearchTeamInterface.View searchTeamView;
 
+    @Override
+    public void initPresenter() {
+
+    }
+
     public SearchTeamPresenter(SearchTeamInterface.View searchTeamView) {
         this.searchTeamView = searchTeamView;
     }
-
 }
