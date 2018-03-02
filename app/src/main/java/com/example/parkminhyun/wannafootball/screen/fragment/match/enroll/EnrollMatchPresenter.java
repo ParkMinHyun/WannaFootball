@@ -12,4 +12,8 @@ public class EnrollMatchPresenter implements EnrollMatchInterface.Presenter {
         this.enrollMatchView = enrollMatchView;
     }
 
+    @Override
+    public void initPresenter() {
+
+    }
 }

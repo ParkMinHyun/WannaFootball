@@ -10,7 +10,7 @@ public class SearchTeamPresenter implements SearchTeamInterface.Presenter {
 
     @Override
     public void initPresenter() {
-
+        searchTeamView.initView();
     }
 
     public SearchTeamPresenter(SearchTeamInterface.View searchTeamView) {

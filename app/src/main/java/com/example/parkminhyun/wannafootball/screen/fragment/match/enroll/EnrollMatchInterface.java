@@ -10,6 +10,7 @@ public interface EnrollMatchInterface {
     }
 
     interface Presenter {
+        void initPresenter();
     }
 
 }

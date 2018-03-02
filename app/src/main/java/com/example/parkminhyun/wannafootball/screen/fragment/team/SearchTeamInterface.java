@@ -7,6 +7,7 @@ package com.example.parkminhyun.wannafootball.screen.fragment.team;
 public interface SearchTeamInterface {
 
     interface View {
+        void initView();
     }
 
     interface Presenter {

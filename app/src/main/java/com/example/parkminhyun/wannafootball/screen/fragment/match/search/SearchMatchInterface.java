@@ -10,6 +10,7 @@ public interface SearchMatchInterface {
     }
 
     interface Presenter {
+        void initPresenter();
     }
 
 }

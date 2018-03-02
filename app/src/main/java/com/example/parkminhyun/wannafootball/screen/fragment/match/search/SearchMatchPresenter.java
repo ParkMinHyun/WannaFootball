@@ -12,4 +12,7 @@ public class SearchMatchPresenter implements SearchMatchInterface.Presenter {
         this.searchMatchView = searchMatchView;
     }
 
+    @Override
+    public void initPresenter() {
+    }
 }
