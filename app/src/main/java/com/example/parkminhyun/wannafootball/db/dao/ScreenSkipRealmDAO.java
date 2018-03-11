@@ -1,6 +1,7 @@
 package com.example.parkminhyun.wannafootball.db.dao;
 
 
+import com.example.parkminhyun.wannafootball.common.base.BaseRealmDAO;
 import com.example.parkminhyun.wannafootball.db.ro.ScreenSkipRO;
 
 /**

@@ -7,7 +7,7 @@ import com.example.parkminhyun.wannafootball.common.base.BaseFragment;
  * Created by ParkMinHyun on 2018-02-20.
  */
 
-public class HomeFragment extends BaseFragment {
+public class TeamInfoFragment extends BaseFragment {
 
     @Override
     protected void init() {}
@@ -19,6 +19,6 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     protected int getLayoutResId() {
-        return R.layout.fragment_home;
+        return R.layout.fragment_team_info;
     }
 }

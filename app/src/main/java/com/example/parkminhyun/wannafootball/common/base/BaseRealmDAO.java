@@ -1,4 +1,4 @@
-package com.example.parkminhyun.wannafootball.db.dao;
+package com.example.parkminhyun.wannafootball.common.base;
 
 import com.example.parkminhyun.wannafootball.App;
 import com.example.parkminhyun.wannafootball.db.core.RealmQueryTask;

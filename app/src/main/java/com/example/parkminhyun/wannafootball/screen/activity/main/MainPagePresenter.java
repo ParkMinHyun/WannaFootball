@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.example.parkminhyun.wannafootball.R;
 import com.example.parkminhyun.wannafootball.common.enums.MainBottomMenu;
-import com.example.parkminhyun.wannafootball.screen.fragment.home.HomeFragment;
+import com.example.parkminhyun.wannafootball.screen.fragment.home.TeamInfoFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.match.enroll.EnrollMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.match.search.SearchMatchingFragment;
 import com.example.parkminhyun.wannafootball.screen.fragment.myinfo.MyInfoFragment;
@@ -35,7 +35,7 @@ public class MainPagePresenter implements MainInterface.Presenter {
     @Override
     public void initFragment() {
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.add(R.id.mainFragmentContainer, new HomeFragment(), HOME.name());
+        fragmentTransaction.add(R.id.mainFragmentContainer, new TeamInfoFragment(), HOME.name());
         fragmentTransaction.commit();
     }
 
@@ -102,7 +102,7 @@ public class MainPagePresenter implements MainInterface.Presenter {
                 currentFragment = new MyInfoFragment();
                 break;
             default:
-                currentFragment = new HomeFragment();
+                currentFragment = new TeamInfoFragment();
                 break;
         }
 
