@@ -30,7 +30,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     }
 
     private void initUserData() {
-        userLoginModelProvider = new UserLoginModelProvider();
+        userLoginModelProvider = UserLoginModelProvider.getInstance();
     }
 
     private void initLoginView() {
