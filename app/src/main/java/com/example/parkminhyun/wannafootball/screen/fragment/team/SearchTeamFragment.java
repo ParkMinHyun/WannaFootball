@@ -68,13 +68,13 @@ public class SearchTeamFragment extends BaseFragment implements SearchTeamInterf
         switch (view.getId()) {
             case R.id.locationTypeCheck:
             case R.id.locationTypeCheckView:
-                teamNameTypeCheckBox.setChecked(!teamNameTypeCheckBox.isChecked());
-                locationTypeCheckBox.setChecked(!locationTypeCheckBox.isChecked());
+                teamNameTypeCheckBox.setChecked(false);
+                locationTypeCheckBox.setChecked(true);
                 break;
             case R.id.teamNameTypeCheck:
             case R.id.teamNameTypeCheckView:
-                teamNameTypeCheckBox.setChecked(!teamNameTypeCheckBox.isChecked());
-                locationTypeCheckBox.setChecked(!locationTypeCheckBox.isChecked());
+                teamNameTypeCheckBox.setChecked(true);
+                locationTypeCheckBox.setChecked(false);
                 break;
             default:
                 break;

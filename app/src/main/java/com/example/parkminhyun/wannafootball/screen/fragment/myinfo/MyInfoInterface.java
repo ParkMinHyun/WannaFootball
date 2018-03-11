@@ -23,7 +23,7 @@ public interface MyInfoInterface {
     interface Presenter {
         void initPresenter();
 
-        void logoutButtonClick();
+        void onClickLogoutButton();
 
         void startLoginActivity();
     }

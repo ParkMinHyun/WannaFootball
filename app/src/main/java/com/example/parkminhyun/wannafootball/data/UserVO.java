@@ -12,7 +12,6 @@ public class UserVO {
     private String userPhoneNumber;
     private String userProfileURL;
 
-
     public UserVO() {}
 
     public UserVO(String userID, String userName, String userAge, String userProfileURL) {

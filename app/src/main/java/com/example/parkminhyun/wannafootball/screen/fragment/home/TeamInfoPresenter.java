@@ -6,10 +6,14 @@ package com.example.parkminhyun.wannafootball.screen.fragment.home;
 
 public class TeamInfoPresenter implements TeamInfoInterface.Presenter {
 
-    private TeamInfoInterface.View homeView;
+    private TeamInfoInterface.View teamInfoView;
 
-    public TeamInfoPresenter(TeamInfoInterface.View homeView) {
-        this.homeView = homeView;
+    public TeamInfoPresenter(TeamInfoInterface.View teamInfoView) {
+        this.teamInfoView = teamInfoView;
     }
 
+    @Override
+    public void onClickCreateTeamButton() {
+
+    }
 }

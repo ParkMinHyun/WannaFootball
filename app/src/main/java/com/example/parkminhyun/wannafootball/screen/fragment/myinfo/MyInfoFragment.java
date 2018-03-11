@@ -94,7 +94,7 @@ public class MyInfoFragment extends BaseFragment implements MyInfoInterface.View
 //                myInfoPresenter.myInfoButtonClick();
                 break;
             case R.id.logoutButton:
-                myInfoPresenter.logoutButtonClick();
+                myInfoPresenter.onClickLogoutButton();
                 break;
             case R.id.moveLoginPageButton:
                 myInfoPresenter.startLoginActivity();

@@ -44,7 +44,7 @@ public class MyInfoPresenter implements MyInfoInterface.Presenter {
     }
 
     @Override
-    public void logoutButtonClick() {
+    public void onClickLogoutButton() {
         Handler handler = new Handler();
         new Thread(() -> {
             Boolean isSucceeded = LoginHelper.naverLogout(App.getInstance());

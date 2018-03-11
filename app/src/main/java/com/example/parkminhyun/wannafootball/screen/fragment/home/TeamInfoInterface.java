@@ -10,6 +10,7 @@ public interface TeamInfoInterface {
     }
 
     interface Presenter {
+        void onClickCreateTeamButton();
     }
 
 }
